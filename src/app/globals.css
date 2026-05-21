@@ -307,6 +307,28 @@ main.container {
   max-width: 100%;
 }
 
+/* Hero portrait — right on desktop (see reference layout); photo on top on small screens */
+.hero-portrait-wrap {
+  flex-shrink: 0;
+  width: 228px;
+  height: 228px;
+  max-width: min(228px, 38vw);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(201, 160, 104, 0.38);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(232, 200, 122, 0.12);
+  align-self: center;
+}
+
+.hero-portrait {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .hero-title {
   font-size: 2rem;
   font-weight: 500;
@@ -561,6 +583,13 @@ main.container {
     text-align: center;
   }
 
+  .hero-portrait-wrap {
+    order: -1;
+    width: 196px;
+    height: 196px;
+    max-width: min(196px, 85vw);
+  }
+
   .profile-image-container {
     width: 220px;
     height: 220px;
@@ -622,6 +651,12 @@ main.container {
     width: 200px;
     height: 200px;
     max-width: min(200px, 78vw);
+  }
+
+  .hero-portrait-wrap {
+    width: 176px;
+    height: 176px;
+    max-width: min(176px, 78vw);
   }
 
   .hero-title {

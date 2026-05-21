@@ -168,7 +168,7 @@ export default function Home() {
 
         <section className="hero">
           <div className="hero-content">
-            <h1 className="hero-title">Hey, I&apos;m Neha Prasad</h1>
+            <h1 className="hero-title">I&apos;m Neha Prasad</h1>
             <p className="hero-kicker">
               Full-stack engineer · Next.js / TypeScript · Python · LLM agents ·
               ships fast
@@ -261,6 +261,18 @@ export default function Home() {
                 Blog
               </a>
             </div>
+          </div>
+
+          <div className="hero-portrait-wrap">
+            <Image
+              src="/nehhr.png"
+              alt="Neha Prasad"
+              width={240}
+              height={240}
+              className="hero-portrait"
+              sizes="(max-width: 480px) 176px, (max-width: 768px) 196px, 228px"
+              priority
+            />
           </div>
         </section>
 
