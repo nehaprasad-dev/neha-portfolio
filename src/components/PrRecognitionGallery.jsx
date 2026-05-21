@@ -164,13 +164,7 @@ export default function PrRecognitionGallery() {
 
   return (
     <div className="recognition-wrap">
-      <p className="recognition-lead">
-        Screenshots from merged work—the strip scrolls horizontally; the center
-        stays sharp and the sides fade into the background. Hover to pause,
-        then click anywhere on the card (or use{" "}
-        <span className="recognition-lead-strong">View original</span>) to open
-        the PR on GitHub.
-      </p>
+     
       <div
         className="recognition-train-mask"
         role="region"

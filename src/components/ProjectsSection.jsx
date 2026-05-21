@@ -43,8 +43,8 @@ export default function ProjectsSection({ projects }) {
                   src={project.image}
                   alt={project.title}
                   className="project-image"
-                  width={400}
-                  height={260}
+                  width={360}
+                  height={220}
                 />
               </div>
               <div className="project-content">

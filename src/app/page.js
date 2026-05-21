@@ -130,77 +130,12 @@ export default function Home() {
       ],
     },
 
-    {
-      title: "EVO2(BioTech + AI + DNA)",
-      description:
-        "Biotech tool for gene lookup and AI‑powered harmful DNA‑variant prediction via FastAPI & React.",
-      image: "/evo.png",
-      liveLink: "https://evo2-sage.vercel.app/",
-      repoLink: "https://github.com/nehaaprasad/evo2",
-      techStack: [
-        "React",
-        "Next.js",
-        "TailwindCSS",
-        "Modal",
-        "Python",
-        "FastAPI",
-        "Shadcn UI",
-        "Evo2",
-      ],
-    },
+   
 
     
 
-    {
-      title: "Jirnov(Project Management + Collaboration)",
-      description:
-        "AI‑powered content platform built with Next.js & Tailwind for interactive note‑taking and tutorials.",
-      image: "/i5.png",
-      liveLink: "https://jirnov.vercel.app/",
-      repoLink: "https://github.com/nehaaprasad/jirnov",
-      techStack: ["React", "MongoDB", "Node.js", "Express", "JWT"],
-    },
+   
 
-    {
-      title: "BeamUp(Video calling + Chat App)",
-      description:
-        "MERN‑stack real‑time video conferencing + chat application for seamless peer‑to‑peer calls.",
-      image: "/i2.png",
-      liveLink:
-        "https://mern-video-calling-realtime-chat-app-50ki.onrender.com/",
-      repoLink:
-        "https://github.com/nehaaprasad/mern-video-calling-realtime-chat-app-social-app",
-      techStack: [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Context API",
-        "JWT",
-      ],
-    },
-
-    {
-      title: "EchoHire(AI Interview Platform)",
-      description:
-        "This AI platform offers realistic mock technical interviews with personalized questions and detailed feedback.",
-      image: "/i3.png",
-      liveLink:
-        "https://interview-platform-with-a-real-time-ai-voice-agent.vercel.app/landing",
-      repoLink:
-        "https://github.com/nehaaprasad/interview-platform-with-a-real-time-ai-voice-agent",
-      techStack: ["Next.js", "Firebase", "React", "VAPI", "Zod"],
-    },
-
-    {
-      title: "TalkCast(Podcast + AI)",
-      description:
-        "Unified podcast platform offering personalized discovery for listeners and community‑driven growth tools for creators.",
-      image: "/i6.png",
-      liveLink: "https://mutli-app.vercel.app/",
-      repoLink: "https://github.com/nehaaprasad/mutli-app",
-      techStack: ["Next.js", "TypeScript", "React", "Convex", "Clerk"],
-    },
   ];
 
   return (
@@ -359,7 +294,63 @@ export default function Home() {
         </section>
 
         <section className="recognition-section" id="recognition">
-          <h2 className="section-title">RECOGNITION</h2>
+          <div className="recognition-section-heading">
+            <div className="recognition-section-icon" aria-hidden="true">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 22h16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M14 14.66V17c0 .55.47.98.97 1.21 2.18 1.54 3 2.79 3 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <h2 className="section-title recognition-section-title">
+              RECOGNITION
+            </h2>
+          </div>
           <PrRecognitionGallery />
         </section>
 
