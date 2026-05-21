@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import RepositoryLink from "./RepositoryLink";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function ProjectsSection({ projects }) {
   const [showAll, setShowAll] = useState(false);
@@ -24,7 +25,7 @@ export default function ProjectsSection({ projects }) {
 
   return (
     <section className="projects-section" id="projects">
-      <h2 className="section-title">PROJECTS</h2>
+      <SectionHeading title="PROJECTS" icon="projects" />
       <div className="projects-grid">
         {visibleProjects.map((project, index) => (
           <div

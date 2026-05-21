@@ -816,7 +816,7 @@ main.container {
     text-align: center;
   }
 
-  .tech-stack-section .section-title {
+  .tech-stack-section .section-heading .section-title {
     text-align: center;
   }
 }
@@ -839,12 +839,12 @@ main.container {
 }
 
 /* Update section title spacing for About section */
-.about-section .section-title {
+.about-section .section-heading {
   margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
 /* Remove underline from About section title specifically */
-.about-section .section-title::after {
+.about-section .section-heading .section-title::after {
   display: none;
 }
 
@@ -853,12 +853,10 @@ main.container {
   margin: calc(var(--spacing-unit) * 8) 0;
 }
 
-.tech-stack-section .section-title {
+.tech-stack-section .section-heading .section-title {
   text-align: left;
-  margin-bottom: calc(var(--spacing-unit) * 4);
 }
 
-/* Reduce spacing between categories */
 .tech-categories {
   display: flex;
   flex-direction: column;
@@ -929,30 +927,20 @@ main.container {
   }
 }
 
-/* Force removal of Tech Stack underline */
-.tech-stack-section .section-title::after {
+/* Tech stack: no accent bar under section title */
+#tech-stack .section-heading .section-title::after,
+.tech-stack-section .section-heading .section-title::after {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
   content: none !important;
   background: transparent !important;
-}
-
-/* Alternative approach - target all section titles globally */
-.section-title::after {
-  display: none;
-}
-
-/* Direct override for tech stack section */
-#tech-stack .section-title::after,
-.tech-stack-section .section-title::after {
-  display: none !important;
   opacity: 0;
   visibility: hidden;
 }
 
 /* Reduce space between TECH STACK title and first category */
-.tech-stack-section .section-title {
+.tech-stack-section .section-heading {
   margin-bottom: calc(var(--spacing-unit) * 2); /* Reduced from the default 6 */
 }
 
@@ -962,7 +950,7 @@ main.container {
   max-width: 800px;
 }
 
-.projects-section .section-title {
+.projects-section .section-heading {
   margin-bottom: calc(var(--spacing-unit) * 4);
 }
 
@@ -1216,7 +1204,7 @@ main.container {
   max-width: 800px;
 }
 
-.experience-section .section-title {
+.experience-section .section-heading {
   margin-bottom: calc(var(--spacing-unit) * 4);
 }
 
@@ -1719,6 +1707,10 @@ body::after {
 }
 
 /* Chat section styling */
+.chat-section .section-heading {
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
 .chat-section {
   margin: 60px auto; /* Reduced from 80px */
   max-width: 700px; /* Reduced from 800px */
@@ -2029,7 +2021,7 @@ body::after {
     margin: calc(var(--spacing-unit) * 6) 0;
   }
 
-  .tech-stack-section .section-title {
+  .tech-stack-section .section-heading {
     margin-bottom: calc(var(--spacing-unit) * 3);
   }
 }
@@ -2448,40 +2440,25 @@ body::after {
 }
 
 /* Add more spacing between title and description */
-.tech-stack-section .section-title {
+.tech-stack-section .section-heading {
   margin-bottom: 20px;
 }
 
-/* Open Source Contributions Section */
-.open-source-section {
-  margin-bottom: calc(var(--spacing-unit) * 8); /* Reduced from 12 */
-  padding: calc(var(--spacing-unit) * 2) 0; /* Reduced from 4 */
-}
-
-.open-source-section .section-title {
-  margin-bottom: calc(var(--spacing-unit) * 4); /* Reduced from 6 */
-}
-
-/* Recognition — compact grid, same width rhythm as OSS block */
-.recognition-section {
-  margin-bottom: calc(var(--spacing-unit) * 8);
-  padding: calc(var(--spacing-unit) * 2) 0;
-  overflow: hidden;
-  max-width: 100%;
-  isolation: isolate;
-}
-
-.recognition-section-heading {
+/* Shared section title + circular icon row */
+.section-heading {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: calc(var(--spacing-unit) * 1.25);
-  margin-bottom: calc(var(--spacing-unit) * 2);
+  row-gap: calc(var(--spacing-unit) * 1);
+  margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
-.recognition-section-icon {
+.section-heading-icon {
   width: 44px;
   height: 44px;
   flex-shrink: 0;
+  margin-top: 0.12rem;
   background: linear-gradient(
     145deg,
     rgba(232, 200, 122, 0.14) 0%,
@@ -2500,7 +2477,7 @@ body::after {
     box-shadow 0.3s ease;
 }
 
-.recognition-section-heading:hover .recognition-section-icon {
+.section-heading:hover .section-heading-icon {
   background: linear-gradient(
     145deg,
     rgba(232, 200, 122, 0.22) 0%,
@@ -2513,12 +2490,40 @@ body::after {
   transform: scale(1.06);
 }
 
-.recognition-section-title {
+/* Title hugs the icon: avoid flex:1 + centered text (looks like icon |——————— TITLE) */
+.section-heading-title.section-title {
   margin-bottom: 0 !important;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
 }
 
-.recognition-section-title::after {
+.section-heading-title.section-title::after {
   bottom: -8px;
+}
+
+/* Open Source Contributions Section */
+.open-source-section {
+  margin-bottom: calc(var(--spacing-unit) * 8); /* Reduced from 12 */
+  padding: calc(var(--spacing-unit) * 2) 0; /* Reduced from 4 */
+}
+
+.open-source-section .section-heading {
+  margin-bottom: calc(var(--spacing-unit) * 4); /* Reduced from 6 */
+}
+
+/* Recognition — compact grid, same width rhythm as OSS block */
+.recognition-section {
+  margin-bottom: calc(var(--spacing-unit) * 8);
+  padding: calc(var(--spacing-unit) * 2) 0;
+  overflow: hidden;
+  max-width: 100%;
+  isolation: isolate;
+}
+
+.recognition-section .section-heading {
+  margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
 .recognition-wrap {

@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import StatusIndicator from "@/components/StatusIndicator";
 import OpenSourceContributions from "@/components/OpenSourceContributions";
 import PrRecognitionGallery from "@/components/PrRecognitionGallery";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Home() {
   const pathRef = useRef(null);
@@ -264,7 +265,7 @@ export default function Home() {
         </section>
 
         <section className="about-section" id="about">
-          <h2 className="section-title">ABOUT</h2>
+          <SectionHeading title="ABOUT" icon="about" />
           <div className="about-content">
             <div className="about-summary">
               I&apos;m a full-stack developer who actually ships.
@@ -289,73 +290,20 @@ export default function Home() {
         </section>
 
         <section className="open-source-section" id="open-source">
-          <h2 className="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
+          <SectionHeading
+            title="OPEN SOURCE CONTRIBUTIONS"
+            icon="openSource"
+          />
           <OpenSourceContributions />
         </section>
 
         <section className="recognition-section" id="recognition">
-          <div className="recognition-section-heading">
-            <div className="recognition-section-icon" aria-hidden="true">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M4 22h16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M14 14.66V17c0 .55.47.98.97 1.21 2.18 1.54 3 2.79 3 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <h2 className="section-title recognition-section-title">
-              RECOGNITION
-            </h2>
-          </div>
+          <SectionHeading title="RECOGNITION" icon="recognition" />
           <PrRecognitionGallery />
         </section>
 
         <section className="experience-section" id="experience">
-          <h2 className="section-title">EXPERIENCE</h2>
+          <SectionHeading title="EXPERIENCE" icon="experience" />
           <div className="experience-list">
             
             
@@ -489,7 +437,7 @@ export default function Home() {
         <ProjectsSection projects={projects} />
 
         <section className="tech-stack-section" id="tech-stack">
-          <h2 className="section-title">TECH STACK</h2>
+          <SectionHeading title="TECH STACK" icon="tech" />
 
           <div className="tech-categories">
             <div className="tech-category">
@@ -579,7 +527,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="chat-section">
+        <section className="chat-section" id="contact">
+          <SectionHeading title="LET&apos;S TALK" icon="chat" />
           <div className="chat-container">
             <div className="chat-left">
               <h3>Start here</h3>
