@@ -8,6 +8,15 @@ export default function OpenSourceContributions() {
   const contributions = {
     merged: [
       {
+        repo: "BerriAI/litellm",
+        title: "fix: ensure guardrail patterns persist on edit and mode toggle",
+        description:
+          "Keeps guardrail pattern configuration intact when users edit settings or switch modes, so safety rules do not silently reset.",
+        type: "Bug Fix",
+        date: "Merged",
+        url: "https://github.com/BerriAI/litellm/pull/19265",
+      },
+      {
         repo: "deepset-ai/haystack-core-integrations",
         title: "feat(astra): add run_async to AstraEmbeddingRetriever",
         description:
