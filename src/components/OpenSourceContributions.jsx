@@ -219,7 +219,7 @@ export default function OpenSourceContributions() {
 
         <div className="contributions-stats">
           <div className="stat-item">
-            <div className="stat-number">150</div>
+            <div className="stat-number">150+</div>
             <div className="stat-label">PR merged</div>
           </div>
         </div>

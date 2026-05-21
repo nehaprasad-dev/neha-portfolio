@@ -2694,19 +2694,16 @@ body::after {
 
 .contributions-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(240px, 1fr)
-  ); /* Reduced from 260px */
-  gap: calc(var(--spacing-unit) * 2); /* Increased from 1 */
-  margin-bottom: calc(var(--spacing-unit) * 4); /* Increased from 2 */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--spacing-unit) * 1.25);
+  margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
 .contribution-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px; /* Reduced from 16px */
-  padding: calc(var(--spacing-unit) * 1.5); /* Reduced from 2.5 */
+  border-radius: 10px;
+  padding: calc(var(--spacing-unit) * 1.25);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -2727,8 +2724,8 @@ body::after {
 .contribution-card:hover {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 .contribution-card:hover::before {
@@ -2739,27 +2736,33 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: calc(var(--spacing-unit) * 0.75); /* Reduced from 1.5 */
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  gap: 0.35rem;
 }
 
 .contribution-repo {
   display: flex;
   align-items: center;
-  gap: 5px; /* Reduced from 6px */
-  font-size: 0.75rem; /* Reduced from 0.8rem */
+  gap: 4px;
+  font-size: 0.68rem;
   color: var(--text-secondary);
   font-weight: 500;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .repo-icon {
-  width: 11px; /* Reduced from 12px */
-  height: 11px; /* Reduced from 12px */
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
 }
 
 .contribution-type {
-  padding: 2px 5px; /* Reduced from 3px 6px */
-  border-radius: 5px; /* Reduced from 6px */
-  font-size: 0.65rem; /* Reduced from 0.7rem */
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.58rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -2796,18 +2799,26 @@ body::after {
 }
 
 .contribution-title {
-  font-size: 0.95rem; /* Reduced from 1rem */
+  font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: calc(var(--spacing-unit) * 0.5); /* Reduced from 0.75 */
+  margin-bottom: calc(var(--spacing-unit) * 0.35);
   color: var(--text-primary);
-  line-height: 1.3; /* Reduced from 1.4 */
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .contribution-description {
-  font-size: 0.8rem; /* Reduced from 0.85rem */
-  line-height: 1.4; /* Reduced from 1.5 */
+  font-size: 0.72rem;
+  line-height: 1.35;
   color: var(--text-secondary);
-  margin-bottom: calc(var(--spacing-unit) * 1.25); /* Reduced from 1.5 */
+  margin-bottom: calc(var(--spacing-unit) * 0.85);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .contribution-footer {
@@ -2818,7 +2829,7 @@ body::after {
 }
 
 .contribution-date {
-  font-size: 0.75rem; /* Reduced from 0.8rem */
+  font-size: 0.68rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -2826,10 +2837,10 @@ body::after {
 .contribution-link {
   display: flex;
   align-items: center;
-  gap: 5px; /* Reduced from 6px */
+  gap: 4px;
   color: #808080;
   text-decoration: none;
-  font-size: 0.8rem; /* Reduced from 0.85rem */
+  font-size: 0.72rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -2840,8 +2851,8 @@ body::after {
 }
 
 .link-icon {
-  width: 12px; /* Reduced from 14px */
-  height: 12px; /* Reduced from 14px */
+  width: 10px;
+  height: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -2996,14 +3007,14 @@ body::after {
   }
 
   .contribution-card {
-    padding: calc(var(--spacing-unit) * 1.25); /* Reduced from 2 */
+    padding: calc(var(--spacing-unit) * 1);
   }
 
   .contribution-title {
-    font-size: 0.95rem; /* Reduced from 1rem */
+    font-size: 0.8rem;
   }
 
   .contribution-description {
-    font-size: 0.8rem; /* Reduced from 0.85rem */
+    font-size: 0.7rem;
   }
 }

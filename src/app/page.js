@@ -149,24 +149,7 @@ export default function Home() {
       ],
     },
 
-    {
-      title: "Finderness (Any Business Finder)",
-      description:
-        "Location‑based Next.js app to discover and filter nearby businesses in real time.",
-
-      image: "/map.png",
-      liveLink: "https://local-business-finder-app-7db1.vercel.app",
-      repoLink: "https://github.com/nehaaprasad/local-business-finder-app",
-      techStack: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Leaflet",
-        "JWT",
-      ],
-    },
+    
 
     {
       title: "Jirnov(Project Management + Collaboration)",
@@ -229,20 +212,20 @@ export default function Home() {
             <Link href="#about" className="nav-link">
               About
             </Link>
-            <Link href="#tech-stack" className="nav-link">
-              Stack
-            </Link>
             <Link href="#open-source" className="nav-link">
               Open Source
-            </Link>
-            <Link href="#projects" className="nav-link">
-              Projects
             </Link>
             <Link href="#recognition" className="nav-link">
               Recognition
             </Link>
             <Link href="#experience" className="nav-link">
               Experience
+            </Link>
+            <Link href="#projects" className="nav-link">
+              Projects
+            </Link>
+            <Link href="#tech-stack" className="nav-link">
+              Stack
             </Link>
           </nav>
         </header>
@@ -370,6 +353,150 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="open-source-section" id="open-source">
+          <h2 className="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
+          <OpenSourceContributions />
+        </section>
+
+        <section className="recognition-section" id="recognition">
+          <h2 className="section-title">RECOGNITION</h2>
+          <PrRecognitionGallery />
+        </section>
+
+        <section className="experience-section" id="experience">
+          <h2 className="section-title">EXPERIENCE</h2>
+          <div className="experience-list">
+            
+            
+            
+        
+
+
+
+            <div className="experience-item">
+             
+             
+             <h3 className="experience-title-styled">Open Source Community Growth Contributor</h3>
+            
+            
+            
+             <h4 className="experience-company-container">
+               <a
+                 href="https://www.warestack.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="experience-company-link"
+               >
+                 Warestack, Inc.
+               </a>
+               <Image
+                 src="/warestck.png"
+                 alt="Warestack, Inc. logo"
+                 width={20}
+                 height={20}
+                 className="company-logo"
+               />
+             </h4>
+
+
+             <div className="experience-gap"></div>
+             <p className="experience-description">
+               • Onboarded 15+ GitHub organizations onto Watchflow, growing open-source adoption and community engagement.
+               <br />• Reviewed and improved 30+ pull requests, raising contribution quality and cutting average review time by ~25%.
+             </p>
+             <div className="experience-timeline">Dec/2025 - Present</div>
+           
+           </div>
+
+
+
+           <div className="experience-item">
+             
+             
+             <h3 className="experience-title-styled"> Software Engineer Intern</h3>
+            
+            
+            
+             <h4 className="experience-company-container">
+               <a
+                 href="https://nfrontventures.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="experience-company-link"
+               >
+                 nFront Ventures
+               </a>
+               <Image
+                 src="/nfront.png"
+                 alt="nFront Ventures logo"
+                 width={20}
+                 height={20}
+                 className="company-logo"
+               />
+             </h4>
+
+
+             <div className="experience-gap"></div>
+             <p className="experience-description">
+               • Built production features for nFront Academy, a white-label platform used by 10+ VC funds, reaching 2,000+ users.
+               <br />• Partnered directly with the founder on roadmap, architecture, and clean Next.js / TypeScript delivery - zero regressions.
+             </p>
+             <div className="experience-timeline">Aug/2025 - Jan/2026</div>
+           
+           </div>
+
+
+           <div className="experience-item">
+             
+             
+             <h3 className="experience-title-styled">Intern</h3>
+            
+            
+            
+             <h4 className="experience-company-container">
+               <a
+                 href="https://keploy.io/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="experience-company-link"
+               >
+                 Keploy
+               </a>
+               <Image
+                 src="/lg1.png"
+                 alt="Keploy logo"
+                 width={20}
+                 height={20}
+                 className="company-logo"
+               />
+             </h4>
+
+
+             <div className="experience-gap"></div>
+             <p className="experience-description">
+               • Enhanced automated test generation from API traffic, strengthening deterministic testing and mocking for modern APIs.
+               <br />• Resolved critical bugs, streamlined documentation, and supported the community to accelerate adoption.
+             </p>
+             <div className="experience-timeline">May/2025 - July/2025</div>
+           
+           </div>
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+        </section>
+
+        <ProjectsSection projects={projects} />
+
         <section className="tech-stack-section" id="tech-stack">
           <h2 className="section-title">TECH STACK</h2>
 
@@ -459,154 +586,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="open-source-section" id="open-source">
-          <h2 className="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
-          <OpenSourceContributions />
-        </section>
-
-        <section className="experience-section" id="experience">
-          <h2 className="section-title">EXPERIENCE</h2>
-          <div className="experience-list">
-            
-            
-            
-        
-
-
-
-            <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled">Open Source Community Growth Contributor</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://www.warestack.com/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 Warestack, Inc.
-               </a>
-               <Image
-                 src="/warestck.png"
-                 alt="Warestack, Inc. logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
-
-
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               • Reaching out to active GitHub organizations and introducing Watchflow to open-source communities where it can be adopted effectively.
-               <br />• Supporting onboarding for interested organizations and serving as the first point of contact for initial questions and feedback.
-               <br />• Reviewing pull requests and sharing constructive feedback to help improve collaboration and product quality.
-             </p>
-             <div className="experience-timeline">Dec/2025 - Present</div>
-           
-           </div>
-
-
-
-           <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled"> Software Engineer Intern</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://nfrontventures.com/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 nFront Ventures
-               </a>
-               <Image
-                 src="/nfront.png"
-                 alt="nFront Ventures logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
-
-
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               • Built and improved features for nFront Academy, a white-labeled platform used by VC funds and their portfolio companies.
-               <br />• Worked closely with the founder on product planning, roadmap decisions, and feature implementation, making sure the platform matched client needs.
-               <br />• Focused on clean, maintainable Next.js code, smooth UI, and scalable frontend development to support future growth.
-             </p>
-             <div className="experience-timeline">Aug/2025 - Jan/2026</div>
-           
-           </div>
-
-
-           <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled">Intern</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://keploy.io/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 Keploy
-               </a>
-               <Image
-                 src="/lg1.png"
-                 alt="Keploy logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
-
-
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               •  Enhancements in the open‑source ecosystem for automated test generation from API traffic.
-               <br />• Collaborated closely with the Keploy core team and community contributors to improve test-case generation, mocking capabilities, and coverage analysis for modern APIs.
-               <br />• Implemented and validated new features for deterministic testing, seamless CI/CD integration, and enhanced developer experience.
-               <br />• Identified and resolved bugs, streamlined documentation, and provided ongoing community support to accelerate adoption.
-             </p>
-             <div className="experience-timeline">May/2025 - July/2025</div>
-           
-           </div>
-
-
-
-
-
-          </div>
-
-
-
-
-
-
-
-        </section>
-
-        <ProjectsSection projects={projects} />
-
-        <section className="recognition-section" id="recognition">
-          <h2 className="section-title">RECOGNITION</h2>
-          <PrRecognitionGallery />
         </section>
 
         <section className="chat-section">
