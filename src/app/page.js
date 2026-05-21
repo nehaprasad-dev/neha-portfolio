@@ -287,7 +287,7 @@ export default function Home() {
 
 
               <a
-                href="https://drive.google.com/file/d/172-S4Le1jnIyhzBDpF_SlkVrCGF3ZbJV/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1CN9ebdkija5DB_ym7-KYob7JykH-dcRW/view?usp=drivesdk"
                 className="social-link"
               >
                 <svg

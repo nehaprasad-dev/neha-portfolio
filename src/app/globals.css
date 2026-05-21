@@ -2283,30 +2283,173 @@ body::after {
   margin: 0 0 calc(var(--spacing-unit) * 3);
 }
 
-.recognition-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.65rem;
-  width: 100%;
-  max-width: 100%;
+.recognition-lead-strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
-@media (max-width: 700px) {
-  .recognition-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* Forward “train” — center card reads loudest; sides fade like reference */
+.recognition-train-mask {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  padding: 0.75rem 0 1rem;
+  /* Soft vignette + mask: neighbors peek in but dissolve into page bg */
+  box-shadow:
+    inset 100px 0 120px -50px var(--bg-primary),
+    inset -100px 0 120px -50px var(--bg-primary);
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 8%,
+    #000 24%,
+    #000 76%,
+    rgba(0, 0, 0, 0.2) 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 8%,
+    #000 24%,
+    #000 76%,
+    rgba(0, 0, 0, 0.2) 92%,
+    transparent 100%
+  );
+}
+
+.recognition-train-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  padding-block: 0.35rem;
+  animation: recognition-train-scroll 64s linear infinite;
+  will-change: transform;
+}
+
+.recognition-train-mask:hover .recognition-train-track {
+  animation-play-state: paused;
+}
+
+@keyframes recognition-train-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 520px) {
+  .recognition-train-track .recognition-card {
+    width: min(340px, calc(100vw - 1.75rem));
+  }
+
+  .recognition-thumb {
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
+  }
+
+  .recognition-img-inner {
+    max-height: 128px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recognition-train-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .recognition-train-mask {
+    mask-image: none;
+    -webkit-mask-image: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    overflow: visible;
+    box-shadow: none;
+    padding: 0.25rem 0;
   }
 }
 
 .recognition-card {
   position: relative;
-  display: block;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(0, 0, 0, 0.22);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(30, 34, 48, 0.96) 0%,
+    rgba(12, 14, 20, 0.98) 100%
+  );
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   max-width: 100%;
   isolation: isolate;
+}
+
+.recognition-card-body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.recognition-train-track .recognition-card {
+  flex: 0 0 auto;
+  width: min(420px, calc(100vw - 2.5rem));
+  max-width: min(420px, 88vw);
+}
+
+.recognition-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.recognition-footer-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.recognition-footer-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.recognition-footer-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.recognition-footer-external {
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .recognition-card--link {
@@ -2317,8 +2460,9 @@ body::after {
 
 .recognition-card--link:hover,
 .recognition-card--link:focus-visible {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
   outline: none;
 }
 
@@ -2332,18 +2476,18 @@ body::after {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 76px;
-  min-height: 76px;
-  max-height: 76px;
+  height: 168px;
+  min-height: 168px;
+  max-height: 168px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .recognition-img-inner {
   width: auto !important;
   max-width: 100% !important;
   height: auto !important;
-  max-height: 68px !important;
+  max-height: 156px !important;
   object-fit: contain !important;
   position: relative !important;
   display: block;
