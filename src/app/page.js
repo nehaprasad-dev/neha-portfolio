@@ -262,18 +262,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-
-          <div className="hero-portrait-wrap">
-            <Image
-              src="/nehhr.png"
-              alt="Neha Prasad"
-              width={240}
-              height={240}
-              className="hero-portrait"
-              sizes="(max-width: 480px) 176px, (max-width: 768px) 196px, 228px"
-              priority
-            />
-          </div>
         </section>
 
         <section className="about-section" id="about">
