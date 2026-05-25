@@ -3700,6 +3700,21 @@ body::after {
   display: none !important;
 }
 
+.open-source-section .section-title,
+.open-source-section .section-heading-title,
+.recognition-section .section-title,
+.recognition-section .section-heading-title,
+.experience-section .section-title,
+.experience-section .section-heading-title,
+.projects-section .section-title,
+.projects-section .section-heading-title,
+.tech-stack-section .section-title,
+.tech-stack-section .section-heading-title,
+.chat-section .section-title,
+.chat-section .section-heading-title {
+  font-weight: 400 !important;
+}
+
 .section-heading {
   position: relative;
   align-items: baseline !important;
