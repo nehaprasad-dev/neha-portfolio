@@ -231,7 +231,6 @@ export default function Home() {
                   sizes="(max-width: 960px) 300px, 280px"
                   style={{ width: "100%", height: "auto" }}
                 />
-                <span className="hero-portrait-badge">INDIA · IST</span>
               </div>
             </div>
 
