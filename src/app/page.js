@@ -371,6 +371,11 @@ export default function Home() {
 
         <section className="recognition-section" id="recognition">
           <SectionHeading title="RECOGNITION" icon="recognition" />
+          <p className="recognition-intro">
+            My PRs have been praised by founders and maintainers of{" "}
+            <strong>Mastra</strong>, <strong>PostHog</strong>, and{" "}
+            <strong>LiteLLM</strong>.
+          </p>
           <PrRecognitionGallery />
         </section>
 
