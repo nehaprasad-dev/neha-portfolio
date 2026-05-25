@@ -2607,16 +2607,12 @@ body::after {
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(142, 37, 54, 0.18);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(252, 246, 242, 0.95) 100%
-  );
-  box-shadow: 0 16px 48px rgba(90, 20, 36, 0.12);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(142, 37, 54, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 16px rgba(90, 20, 36, 0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   max-width: 100%;
   isolation: isolate;
 }
@@ -2639,10 +2635,10 @@ body::after {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.7rem 1rem;
-  border-top: 1px solid rgba(184, 137, 74, 0.18);
-  background: rgba(250, 244, 234, 0.85);
-  font-size: 0.72rem;
+  padding: 0.6rem 0.85rem;
+  border-top: 1px solid rgba(142, 37, 54, 0.08);
+  background: transparent;
+  font-size: 0.68rem;
   color: var(--text-secondary);
   flex-shrink: 0;
 }
@@ -2650,26 +2646,35 @@ body::after {
 .recognition-footer-meta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-weight: 500;
+  gap: 0.35rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
 .recognition-footer-icon {
   flex-shrink: 0;
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
 .recognition-footer-action {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
   font-weight: 600;
-  color: #1a1410;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-caramel);
 }
 
 .recognition-footer-external {
   flex-shrink: 0;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .recognition-card--link {
@@ -2680,11 +2685,8 @@ body::after {
 
 .recognition-card--link:hover,
 .recognition-card--link:focus-visible {
-  border-color: rgba(184, 137, 74, 0.5);
-  box-shadow:
-    0 20px 56px rgba(70, 50, 30, 0.18),
-    0 0 0 1px rgba(184, 137, 74, 0.22),
-    0 0 36px rgba(184, 137, 74, 0.15);
+  border-color: rgba(142, 37, 54, 0.25);
+  box-shadow: 0 8px 28px rgba(90, 20, 36, 0.12);
   transform: translateY(-2px);
   outline: none;
 }
@@ -2699,11 +2701,11 @@ body::after {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 148px;
-  min-height: 148px;
-  max-height: 148px;
+  height: 160px;
+  min-height: 160px;
+  max-height: 160px;
   overflow: hidden;
-  background: rgba(250, 244, 234, 0.8);
+  background: rgba(252, 248, 244, 0.6);
 }
 
 .recognition-img-inner {
@@ -2724,12 +2726,13 @@ body::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
-  padding: 0.35rem;
+  gap: 0.35rem;
+  padding: 0.5rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
   opacity: 0;
-  transition: opacity 0.22s ease;
+  transition: opacity 0.25s ease;
   pointer-events: none;
 }
 
@@ -2739,25 +2742,28 @@ body::after {
 }
 
 .recognition-badge {
-  font-size: 0.58rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #166534;
-  padding: 0.12rem 0.45rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  background: rgba(74, 222, 128, 0.18);
-  border: 1px solid rgba(34, 197, 94, 0.45);
+  background: rgba(46, 110, 70, 0.08);
+  border: 1px solid rgba(46, 110, 70, 0.28);
   line-height: 1.2;
 }
 
 .recognition-pr-label {
-  font-size: 0.65rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
   font-weight: 600;
-  color: #1a1410;
-  line-height: 1.25;
+  color: var(--text-primary);
+  line-height: 1.3;
   max-width: 100%;
   word-break: break-word;
+  letter-spacing: 0.02em;
 }
 
 .recognition-pr-label--muted {
@@ -2767,9 +2773,12 @@ body::after {
 }
 
 .recognition-cta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.58rem;
-  color: #6b4f3d;
-  margin-top: 0.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent-caramel);
+  margin-top: 0.15rem;
 }
 
 .contributions-container {
