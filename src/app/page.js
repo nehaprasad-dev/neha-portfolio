@@ -139,44 +139,116 @@ export default function Home() {
 
   ];
 
+  const tocItems = [
+    { num: "01", label: "About", href: "#about" },
+    { num: "02", label: "Open Source", href: "#open-source" },
+    { num: "03", label: "Recognition", href: "#recognition" },
+    { num: "04", label: "Experience", href: "#experience" },
+    { num: "05", label: "Projects", href: "#projects" },
+    { num: "06", label: "Stack", href: "#tech-stack" },
+    { num: "07", label: "Contact", href: "#contact" },
+  ];
+
   return (
     <>
-      <main className="container">
-        <Timer />
-        <header className="header">
-          <nav className="nav-links">
-            <Link href="#about" className="nav-link">
-              About
-            </Link>
-            <Link href="#open-source" className="nav-link">
-              Open Source
-            </Link>
-            <Link href="#recognition" className="nav-link">
-              Recognition
-            </Link>
-            <Link href="#experience" className="nav-link">
-              Experience
-            </Link>
-            <Link href="#projects" className="nav-link">
-              Projects
-            </Link>
-            <Link href="#tech-stack" className="nav-link">
-              Stack
-            </Link>
-          </nav>
-        </header>
+      <header className="header">
+        <nav className="nav-links">
+          <Link href="#about" className="nav-link">About</Link>
+          <Link href="#open-source" className="nav-link">Open Source</Link>
+          <Link href="#recognition" className="nav-link">Recognition</Link>
+          <Link href="#experience" className="nav-link">Experience</Link>
+          <Link href="#projects" className="nav-link">Projects</Link>
+          <Link href="#tech-stack" className="nav-link">Stack</Link>
+        </nav>
+      </header>
+
+      <div className="layout">
+        <aside className="layout-sidebar">
+          <div className="sidebar-status">
+            <div className="sidebar-status-label">
+              <span className="sidebar-status-dot" /> CURRENTLY SHIPPING
+            </div>
+            <p className="sidebar-status-text">
+              <strong>Full-stack engineer</strong> shipping LLM agents and
+              production web apps.
+            </p>
+            <p className="sidebar-status-meta">INDIA · IST</p>
+          </div>
+
+          <div className="sidebar-toc">
+            <div className="sidebar-toc-title">§ CONTENTS</div>
+            <ul className="sidebar-toc-list">
+              {tocItems.map((item) => (
+                <li key={item.num} className="sidebar-toc-item">
+                  <Link href={item.href} className="sidebar-toc-link">
+                    <span className="sidebar-toc-num">{item.num}</span>
+                    <span className="sidebar-toc-label">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="sidebar-connect">
+            <div className="sidebar-connect-title">Connect with me</div>
+            <ul className="sidebar-connect-list">
+              <li><a href="https://github.com/nehaaprasad" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></li>
+              <li><a href="https://x.com/nehaaaa_6" target="_blank" rel="noopener noreferrer">X / TWITTER ↗</a></li>
+              <li><a href="https://www.linkedin.com/in/neha-prasad-92499821b/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a></li>
+              <li><a href="https://nehacodes.hashnode.dev/" target="_blank" rel="noopener noreferrer">BLOG ↗</a></li>
+              <li><a href="mailto:nehaaprasad06@gmail.com">EMAIL</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <main className="layout-main container">
 
         <section className="hero">
-          <div className="hero-content">
-            <h1 className="hero-title">I&apos;m Neha Prasad</h1>
-            <p className="hero-kicker">
-              Full-stack engineer · Next.js / TypeScript · Python · LLM agents ·
-              ships fast
-            </p>
-            <StatusIndicator />
+          <div className="hero-inner">
+            <div className="hero-intro-bar">
+              <div className="hero-intro-primary">
+                <Timer />
+                <div className="hero-eyebrow">
+                  <span>FULL-STACK ENGINEER</span>
+                  <span className="hero-eyebrow-dot">·</span>
+                  <span>OPEN SOURCE</span>
+                  <span className="hero-eyebrow-dot">·</span>
+                  <span>LLM AGENTS</span>
+                </div>
+              </div>
+              <p className="hero-meta-corner">INDIA · IST · 2026</p>
+            </div>
 
-            <div className="social-links">
+            <div className="hero-visual">
+              <div className="hero-portrait">
+                <Image
+                  src="/portner.png"
+                  alt="Portrait of Neha Prasad"
+                  width={560}
+                  height={700}
+                  className="hero-portrait-img"
+                  priority
+                  sizes="(max-width: 960px) 300px, 280px"
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <span className="hero-portrait-badge">INDIA · IST</span>
+              </div>
+            </div>
 
+            <div className="hero-copy">
+              <p className="hero-aboutme">• ABOUT ME</p>
+              <h1 className="hero-title">
+                hey, I&apos;m <em>Neha</em>{" "}
+                <span className="hero-wave">👋</span>
+              </h1>
+              <ul className="hero-bullets">
+                <li>Full-stack engineer · <strong>Next.js / TypeScript / Python</strong></li>
+                <li><strong>150+ merged open-source PRs</strong> across production AI frameworks</li>
+                <li>Ship <strong>LLM agents</strong> and clean web apps fast</li>
+              </ul>
+              <StatusIndicator />
+
+              <div className="social-links">
             <a href="https://github.com/nehaaprasad" className="social-link">
                 <svg
                   width="20"
@@ -260,6 +332,7 @@ export default function Home() {
                 </svg>
                 Blog
               </a>
+              </div>
             </div>
           </div>
         </section>
@@ -602,7 +675,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+        </main>
+      </div>
       <div className="bottom-line-container" ref={containerRef}>
         <svg
           className="w-full h-16 overflow-visible undefined"
