@@ -2882,172 +2882,248 @@ body::after {
   height: 14px; /* Reduced from 16px */
 }
 
+/* ===== Open Source Contributions — editorial list ===== */
 .contributions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-  gap: calc(var(--spacing-unit) * 1.25);
-  margin-bottom: calc(var(--spacing-unit) * 3);
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-bottom: 32px;
+  border-top: 1px solid rgba(142, 37, 54, 0.14);
+  counter-reset: pr;
 }
 
 .contribution-card {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(184, 137, 74, 0.18);
-  border-radius: 10px;
-  padding: calc(var(--spacing-unit) * 1.25);
-  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "num head head"
+    "num title title"
+    "num desc desc"
+    ".   foot foot";
+  column-gap: 18px;
+  row-gap: 6px;
+  padding: 22px 4px 22px 6px;
+  border-bottom: 1px solid rgba(142, 37, 54, 0.12);
+  background: transparent;
+  border-radius: 0;
+  transition: background 0.25s ease;
+  counter-increment: pr;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .contribution-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #b8884a, #6b4f3d);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  content: counter(pr, decimal-leading-zero);
+  grid-area: num;
+  font-family: "Fraunces", "Georgia", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent-caramel);
+  letter-spacing: 0.02em;
+  align-self: start;
+  padding-top: 2px;
+  position: static;
+  background: none;
+  height: auto;
+  transform: none;
 }
 
 .contribution-card:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(184, 137, 74, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(70, 50, 30, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(142, 37, 54, 0.22);
+  transform: none;
+  box-shadow: none;
 }
 
 .contribution-card:hover::before {
-  transform: scaleX(1);
+  transform: none;
 }
 
 .contribution-header {
+  grid-area: head;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: calc(var(--spacing-unit) * 0.5);
-  gap: 0.35rem;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 2px;
 }
 
 .contribution-repo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-  font-weight: 500;
+  gap: 6px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-caramel);
+  font-weight: 600;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-transform: lowercase;
 }
 
 .repo-icon {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .contribution-type {
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-size: 0.58rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  flex-shrink: 0;
 }
 
-.contribution-type.documentation {
-  background: rgba(201, 160, 104, 0.18);
-  color: #e8c87a;
-}
-
+.contribution-type.documentation,
 .contribution-type.docs {
-  background: rgba(201, 160, 104, 0.18);
-  color: #e8c87a;
+  background: rgba(184, 137, 74, 0.1);
+  color: #8a6a3d;
+  border-color: rgba(184, 137, 74, 0.28);
 }
 
 .contribution-type.bug-fix {
-  background: rgba(239, 68, 68, 0.2);
-  color: #f87171;
+  background: rgba(142, 37, 54, 0.08);
+  color: #8e2536;
+  border-color: rgba(142, 37, 54, 0.28);
 }
 
 .contribution-type.feature {
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
+  background: rgba(46, 110, 70, 0.08);
+  color: #2e6e46;
+  border-color: rgba(46, 110, 70, 0.28);
 }
 
-.contribution-type.performance {
-  background: rgba(201, 160, 104, 0.2);
-  color: #e8c87a;
-}
-
+.contribution-type.performance,
 .contribution-type.enhancement {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fbbf24;
+  background: rgba(184, 137, 74, 0.1);
+  color: #8a6a3d;
+  border-color: rgba(184, 137, 74, 0.28);
+}
+
+.contribution-type.all-prs {
+  background: rgba(26, 10, 16, 0.06);
+  color: var(--text-primary);
+  border-color: rgba(26, 10, 16, 0.2);
 }
 
 .contribution-title {
-  font-size: 0.82rem;
+  grid-area: title;
+  font-family: "Fraunces", "Georgia", serif;
+  font-size: 1.02rem;
   font-weight: 600;
-  margin-bottom: calc(var(--spacing-unit) * 0.35);
+  margin: 0;
   color: var(--text-primary);
-  line-height: 1.25;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
 }
 
 .contribution-description {
-  font-size: 0.72rem;
-  line-height: 1.35;
+  grid-area: desc;
+  font-size: 0.85rem;
+  line-height: 1.55;
   color: var(--text-secondary);
-  margin-bottom: calc(var(--spacing-unit) * 0.85);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0;
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
 }
 
 .contribution-footer {
+  grid-area: foot;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  margin-top: 8px;
+  gap: 12px;
 }
 
 .contribution-date {
-  font-size: 0.68rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
-  font-weight: 500;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contribution-date::before {
+  content: "●";
+  font-size: 0.55rem;
+  color: #2e6e46;
 }
 
 .contribution-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-  color: #6b4f3d;
+  gap: 6px;
+  color: var(--accent-caramel);
   text-decoration: none;
-  font-size: 0.72rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .contribution-link:hover {
-  color: #1a1410;
-  transform: translateX(4px);
+  color: var(--accent-mocha);
+  transform: translateX(2px);
 }
 
 .link-icon {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.3s ease;
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
 }
 
 .contribution-link:hover .link-icon {
   transform: translateX(2px);
+}
+
+@media (max-width: 720px) {
+  .contribution-card {
+    grid-template-columns: 32px minmax(0, 1fr);
+    grid-template-areas:
+      "num head"
+      "num title"
+      "num desc"
+      ".   foot";
+    column-gap: 12px;
+    padding: 18px 2px;
+  }
+
+  .contribution-header {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .contribution-title {
+    font-size: 0.95rem;
+  }
+
+  .contribution-description {
+    font-size: 0.82rem;
+  }
 }
 
 .contributions-cta {
@@ -3196,17 +3272,6 @@ body::after {
     font-size: 0.65rem; /* Reduced from 0.7rem */
   }
 
-  .contribution-card {
-    padding: calc(var(--spacing-unit) * 1);
-  }
-
-  .contribution-title {
-    font-size: 0.8rem;
-  }
-
-  .contribution-description {
-    font-size: 0.7rem;
-  }
 }
 
 /* ============================================================
@@ -3818,7 +3883,7 @@ main.container {
     padding: 16px !important;
   }
   .contribution-card {
-    padding: 14px !important;
+    padding: 18px 2px !important;
   }
 }
 
