@@ -216,7 +216,6 @@ export default function Home() {
                   <span>LLM AGENTS</span>
                 </div>
               </div>
-              <p className="hero-meta-corner">INDIA · IST · 2026</p>
             </div>
 
             <div className="hero-visual">
