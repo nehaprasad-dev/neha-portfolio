@@ -321,7 +321,7 @@ export default function OpenSourceContributions() {
             <span className="cta-label-long">View GitHub Profile</span>
             <span className="cta-label-short">GitHub</span>
           </a>
-          <a href="mailto:nehaaa06@gmail.com" className="cta-button secondary">
+          <a href="mailto:nehaprasad27118@gmail.com" className="cta-button secondary">
             <svg
               className="button-icon"
               viewBox="0 0 24 24"
