@@ -237,8 +237,7 @@ export default function Home() {
             <div className="hero-copy">
               <p className="hero-aboutme">• ABOUT ME</p>
               <h1 className="hero-title">
-                hey, I&apos;m <em>Neha</em>{" "}
-                <span className="hero-wave">👋</span>
+                Hello, it&apos;s <em>Neha</em>
               </h1>
               <ul className="hero-bullets">
                 <li>Full-stack engineer · <strong>Next.js / TypeScript / Python</strong></li>
