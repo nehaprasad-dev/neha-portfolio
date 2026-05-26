@@ -140,19 +140,29 @@ export default function Home() {
   ];
 
   const tocItems = [
-    { num: "a", label: "About", href: "#about" },
-    { num: "b", label: "Open Source", href: "#open-source" },
-    { num: "c", label: "Recognition", href: "#recognition" },
-    { num: "d", label: "Experience", href: "#experience" },
-    { num: "e", label: "Projects", href: "#projects" },
-    { num: "f", label: "Stack", href: "#tech-stack" },
-    { num: "g", label: "Contact", href: "#contact" },
+    { label: "About", href: "#about" },
+    { label: "Open Source", href: "#open-source" },
+    { label: "Recognition", href: "#recognition" },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects", href: "#projects" },
+    { label: "Stack", href: "#tech-stack" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
     <>
       <header className="header">
-        <nav className="nav-links">
+        <div className="header-mobile-brand">
+          <Link href="#about" className="header-name">
+            <span className="header-name-first">Neha</span>
+            <span className="header-name-last"> Prasad</span>
+          </Link>
+          <span className="header-mobile-badge">
+            <span className="header-status-dot" aria-hidden />
+            Open Source
+          </span>
+        </div>
+        <nav className="nav-links" aria-label="Site sections">
           <Link href="#about" className="nav-link">About</Link>
           <Link href="#open-source" className="nav-link">Open Source</Link>
           <Link href="#recognition" className="nav-link">Recognition</Link>
@@ -179,9 +189,8 @@ export default function Home() {
             <div className="sidebar-toc-title">§ CONTENTS</div>
             <ul className="sidebar-toc-list">
               {tocItems.map((item) => (
-                <li key={item.num} className="sidebar-toc-item">
+                <li key={item.href} className="sidebar-toc-item">
                   <Link href={item.href} className="sidebar-toc-link">
-                    <span className="sidebar-toc-num">{item.num}</span>
                     <span className="sidebar-toc-label">{item.label}</span>
                   </Link>
                 </li>

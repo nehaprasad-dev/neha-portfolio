@@ -129,6 +129,51 @@ body {
   display: none;
 }
 
+.header-mobile-brand {
+  display: none;
+}
+
+.header-name {
+  text-decoration: none;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.header-name-first {
+  font-family: "Fraunces", "Georgia", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.header-name-last {
+  font-family: "Fraunces", "Georgia", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.header-mobile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.header-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-caramel);
+  box-shadow: 0 0 0 3px rgba(142, 37, 54, 0.14);
+  flex-shrink: 0;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -2981,17 +3026,16 @@ body::after {
   gap: 0;
   margin-bottom: 32px;
   border-top: 1px solid rgba(142, 37, 54, 0.14);
-  counter-reset: pr;
 }
 
 .contribution-card {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
-    "num head head"
-    "num title title"
-    "num desc desc"
-    ".   foot foot";
+    "head head"
+    "title title"
+    "desc desc"
+    "foot foot";
   column-gap: 18px;
   row-gap: 6px;
   padding: 22px 4px 22px 6px;
@@ -2999,26 +3043,12 @@ body::after {
   background: transparent;
   border-radius: 0;
   transition: background 0.25s ease;
-  counter-increment: pr;
   position: relative;
   overflow: visible;
 }
 
 .contribution-card::before {
-  content: counter(pr, lower-alpha);
-  grid-area: num;
-  font-family: "Fraunces", "Georgia", serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--accent-caramel);
-  letter-spacing: 0.02em;
-  align-self: start;
-  padding-top: 2px;
-  position: static;
-  background: none;
-  height: auto;
-  transform: none;
+  display: none;
 }
 
 .contribution-card:hover {
@@ -3194,20 +3224,15 @@ body::after {
 
 @media (max-width: 720px) {
   .contribution-card {
-    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      "num head"
-      "num title"
-      "num desc"
-      ".   foot";
-    column-gap: 10px;
+      "head"
+      "title"
+      "desc"
+      "foot";
+    column-gap: 0;
     row-gap: 4px;
     padding: 16px 0;
-  }
-
-  .contribution-card::before {
-    font-size: 0.95rem;
-    padding-top: 4px;
   }
 
   .contribution-header {
@@ -4100,18 +4125,10 @@ body::after {
   align-items: baseline !important;
   gap: 14px !important;
   margin-bottom: 24px !important;
-  counter-increment: section;
 }
 
 .section-heading::before {
-  content: counter(section, lower-alpha);
-  font-family: "Fraunces", "Georgia", serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.3rem, 2.3vw, 1.6rem);
-  color: var(--accent-caramel);
-  letter-spacing: 0.02em;
-  padding-top: 2px;
+  display: none;
 }
 
 .section-heading-icon {
@@ -4119,7 +4136,7 @@ body::after {
 }
 
 .layout-main {
-  counter-reset: section;
+  counter-reset: none;
 }
 
 /* Section spacing — tighter, more editorial */
@@ -4142,13 +4159,39 @@ body::after {
 /* Smaller, secondary stack-category titles */
 .category-title {
   font-family: "JetBrains Mono", ui-monospace, monospace !important;
-  font-size: 0.72rem !important;
-  letter-spacing: 0.14em !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase;
   background: none !important;
   -webkit-background-clip: initial !important;
   -webkit-text-fill-color: initial !important;
-  color: var(--accent-caramel) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  margin-bottom: 14px !important;
+}
+
+.tech-stack-section .tech-item {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  border: 1px solid rgba(90, 20, 36, 0.16) !important;
+  padding: 8px 14px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(90, 20, 36, 0.06) !important;
+}
+
+.tech-stack-section .tech-item:not(:last-child)::after {
+  display: none !important;
+}
+
+.tech-stack-section .tech-items {
+  gap: 10px 12px !important;
+  margin-bottom: 0 !important;
+}
+
+.tech-stack-section .tech-categories {
+  gap: 36px !important;
 }
 
 /* Tighten container padding — sidebar handles spacing */
@@ -4171,56 +4214,40 @@ main.container {
   .layout {
     grid-template-columns: 1fr !important;
     gap: 0 !important;
-    padding: 96px 20px 0 !important;
+    padding: 68px 20px 0 !important;
   }
   .layout-sidebar {
     display: none !important;
   }
 
   .header {
-    top: 10px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: calc(100vw - 20px) !important;
-    max-width: calc(100vw - 20px) !important;
-    padding: 0.35rem 0.4rem !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 20px !important;
     box-sizing: border-box !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(90, 20, 36, 0.1) !important;
+    background: rgba(254, 250, 245, 0.96) !important;
+    backdrop-filter: blur(12px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+    box-shadow: none !important;
+  }
+
+  .header-mobile-brand {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
   }
 
   .nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    gap: 0.4rem !important;
-    padding: 0.1rem 0.15rem !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-    width: 100% !important;
-  }
-
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 0 0 auto !important;
-    scroll-snap-align: start;
-    min-height: 40px !important;
-    padding: 0.45rem 0.75rem !important;
-    font-size: 0.74rem !important;
-    line-height: 1 !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-    border-radius: 999px !important;
-    background: rgba(142, 37, 54, 0.05) !important;
-    border: 1px solid rgba(142, 37, 54, 0.1) !important;
+    display: none !important;
   }
 
   .chat-section {
@@ -4245,6 +4272,20 @@ main.container {
 
   .open-source-section {
     margin-bottom: 40px !important;
+  }
+
+  .tech-stack-section .tech-categories {
+    gap: 32px !important;
+  }
+
+  .tech-stack-section .category-title {
+    text-align: left !important;
+    font-size: 0.8rem !important;
+  }
+
+  .tech-stack-section .tech-items {
+    justify-content: flex-start !important;
+    gap: 10px !important;
   }
 
   .hero {
@@ -4330,19 +4371,20 @@ main.container {
 
 @media (max-width: 480px) {
   .layout {
-    padding: 92px 12px 0 !important;
+    padding: 64px 12px 0 !important;
   }
 
   .header {
-    width: calc(100vw - 16px) !important;
-    max-width: calc(100vw - 16px) !important;
-    padding: 0.3rem 0.35rem !important;
+    padding: 12px 16px !important;
   }
 
-  .nav-link {
-    font-size: 0.7rem !important;
-    min-height: 38px !important;
-    padding: 0.4rem 0.65rem !important;
+  .header-name-first,
+  .header-name-last {
+    font-size: 1.05rem !important;
+  }
+
+  .header-mobile-badge {
+    font-size: 0.62rem !important;
   }
 
   .tab-button {
@@ -4364,9 +4406,6 @@ main.container {
   }
   .section-title {
     font-size: 1.4rem !important;
-  }
-  .section-heading::before {
-    font-size: 1.1rem !important;
   }
 }
 
