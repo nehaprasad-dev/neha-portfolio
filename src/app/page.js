@@ -140,13 +140,13 @@ export default function Home() {
   ];
 
   const tocItems = [
-    { num: "01", label: "About", href: "#about" },
-    { num: "02", label: "Open Source", href: "#open-source" },
-    { num: "03", label: "Recognition", href: "#recognition" },
-    { num: "04", label: "Experience", href: "#experience" },
-    { num: "05", label: "Projects", href: "#projects" },
-    { num: "06", label: "Stack", href: "#tech-stack" },
-    { num: "07", label: "Contact", href: "#contact" },
+    { num: "a", label: "About", href: "#about" },
+    { num: "b", label: "Open Source", href: "#open-source" },
+    { num: "c", label: "Recognition", href: "#recognition" },
+    { num: "d", label: "Experience", href: "#experience" },
+    { num: "e", label: "Projects", href: "#projects" },
+    { num: "f", label: "Stack", href: "#tech-stack" },
+    { num: "g", label: "Contact", href: "#contact" },
   ];
 
   return (
