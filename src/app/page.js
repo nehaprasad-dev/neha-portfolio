@@ -140,13 +140,13 @@ export default function Home() {
   ];
 
   const tocItems = [
-    { label: "About", href: "#about" },
-    { label: "Open Source", href: "#open-source" },
-    { label: "Recognition", href: "#recognition" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Stack", href: "#tech-stack" },
-    { label: "Contact", href: "#contact" },
+    { num: "a", label: "About", href: "#about" },
+    { num: "b", label: "Open Source", href: "#open-source" },
+    { num: "c", label: "Recognition", href: "#recognition" },
+    { num: "d", label: "Experience", href: "#experience" },
+    { num: "e", label: "Projects", href: "#projects" },
+    { num: "f", label: "Stack", href: "#tech-stack" },
+    { num: "g", label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -191,6 +191,7 @@ export default function Home() {
               {tocItems.map((item) => (
                 <li key={item.href} className="sidebar-toc-item">
                   <Link href={item.href} className="sidebar-toc-link">
+                    <span className="sidebar-toc-num">{item.num}.</span>
                     <span className="sidebar-toc-label">{item.label}</span>
                   </Link>
                 </li>
