@@ -617,17 +617,12 @@ export default function Home() {
             <div className="chat-left">
               <h3>Start here</h3>
               <h2>
-                Let&apos;s hop on a quick call and see we&apos;ve got the right
-                chemistry.
+                Let&apos;s hop on a quick call and see if we&apos;re a good fit.
               </h2>
-              <p>Want to bounce ideas?</p>
               <p>
-                Let&apos;s jump on a quick call and explore what&apos;s
-                possible.
+                Open to freelance, full-time roles, or collaborating on open
+                source.
               </p>
-              <p>Looking to build something bigger?</p>
-
-              <p>Perfect! Let&apos;s grab a coffee and brainstorm in person.</p>
             </div>
             <div className="chat-right">
               <div className="chat-icon">
@@ -656,8 +651,7 @@ export default function Home() {
               </div>
               <h2 className="chat-title">Ready to chat?</h2>
               <p className="chat-description">
-                Schedule a free strategy call to discuss your project and
-                explore how we can work together.
+                Pick a time — free 15 or 30 minute call.
               </p>
               <div className="chat-buttons">
                 <a
@@ -680,8 +674,7 @@ export default function Home() {
                 </a>
               </div>
               <p className="chat-quote">
-                &quot;Turning your vision into digital reality is just one
-                conversation away&quot;
+                One conversation away from building something great.
               </p>
             </div>
           </div>
