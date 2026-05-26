@@ -738,10 +738,72 @@ main.container {
 
 .about-content {
   padding: 0;
-  max-width: 800px;
+  max-width: 640px;
+  margin: 0;
+}
+
+.about-lead {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0 0 28px;
+}
+
+.about-block {
+  margin-bottom: 24px;
+}
+
+.about-block:last-of-type {
+  margin-bottom: 8px;
+}
+
+.about-label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-list li {
   font-size: 0.82rem;
-  line-height: 1.6;
-  margin: 0 auto;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding-left: 12px;
+  border-left: 2px solid rgba(142, 37, 54, 0.18);
+}
+
+.about-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.about-text-block {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.about-footnote {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 20px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(142, 37, 54, 0.1);
 }
 
 .about-text {
@@ -760,14 +822,11 @@ main.container {
 }
 
 .about-summary {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-  text-align: left;
+  display: none;
 }
 
 /* Make paragraphs in about section more compact */
-.about-content p {
+.about-content > p:not(.about-lead):not(.about-footnote) {
   margin-bottom: 12px;
 }
 
@@ -887,7 +946,7 @@ main.container {
 
 /* Update section title spacing for About section */
 .about-section .section-heading {
-  margin-bottom: calc(var(--spacing-unit) * 3);
+  margin-bottom: calc(var(--spacing-unit) * 3.5);
 }
 
 /* Remove underline from About section title specifically */
@@ -1074,25 +1133,28 @@ main.container {
 }
 
 .project-title {
-  font-family: "Fraunces", "Georgia", serif;
-  font-size: 0.88rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   color: var(--text-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .project-description {
-  color: var(--text-secondary);
-  font-size: 0.74rem;
-  line-height: 1.45;
-  margin-bottom: 4px;
+  color: #4a3038;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
   flex: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  max-height: 44px !important;
+  max-height: 3.6em !important;
+  font-weight: 400;
 }
 
 .tech-stack-tags {
@@ -1125,24 +1187,30 @@ main.container {
 .repository-links {
   display: flex;
   gap: 0;
-  border-top: 1px solid rgba(142, 37, 54, 0.1);
+  border-top: 1px solid rgba(142, 37, 54, 0.16);
+  background: linear-gradient(
+    180deg,
+    #fef8f4 0%,
+    #f3ddd4 55%,
+    #ecd0c6 100%
+  );
 }
 
 .repository-link {
   position: relative;
   z-index: 2;
   margin: 0;
-  padding: 8px 12px;
-  background: transparent;
-  color: var(--accent-caramel);
+  padding: 8px 10px;
+  background: rgba(142, 37, 54, 0.08);
+  color: #7a2030;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  font-size: 0.62rem;
   text-transform: uppercase;
   flex: 1;
   transition: background 0.2s ease, color 0.2s ease;
@@ -1150,11 +1218,11 @@ main.container {
 }
 
 .repository-link + .repository-link {
-  border-left: 1px solid rgba(142, 37, 54, 0.1);
+  border-left: 1px solid rgba(142, 37, 54, 0.12);
 }
 
 .repository-link:hover {
-  background: rgba(142, 37, 54, 0.06);
+  background: rgba(142, 37, 54, 0.16);
   color: var(--accent-mocha);
 }
 
@@ -2484,12 +2552,12 @@ body::after {
 
 /* Open Source Contributions Section */
 .open-source-section {
-  margin-bottom: calc(var(--spacing-unit) * 8); /* Reduced from 12 */
-  padding: calc(var(--spacing-unit) * 2) 0; /* Reduced from 4 */
+  margin-bottom: calc(var(--spacing-unit) * 8);
+  padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 2);
 }
 
 .open-source-section .section-heading {
-  margin-bottom: calc(var(--spacing-unit) * 4); /* Reduced from 6 */
+  margin-bottom: calc(var(--spacing-unit) * 5);
 }
 
 /* Recognition — compact grid, same width rhythm as OSS block */
@@ -2849,38 +2917,64 @@ body::after {
 }
 
 .contributions-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: calc(var(--spacing-unit) * 4); /* Increased from 2 */
-  gap: calc(var(--spacing-unit) * 3); /* Increased from 1.5 */
+  margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
 .contributions-intro {
   flex: 1;
 }
 
+.contributions-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
 .contributions-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: calc(var(--spacing-unit) * 1.5);
-  background: linear-gradient(135deg, #1a1410, #6b4f3d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  flex: 1;
+  min-width: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+
+.contributions-stat-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--accent-caramel);
+  border: 1px solid rgba(90, 20, 36, 0.15);
+  white-space: nowrap;
 }
 
 .contributions-description {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 0;
+  margin: 0;
+  max-width: 52ch;
 }
 
 .contributions-stats {
-  display: flex;
-  gap: calc(var(--spacing-unit) * 1.5); /* Reduced from 2 */
-  flex-shrink: 0;
+  display: none;
 }
 
 .stat-item {
@@ -2913,46 +3007,41 @@ body::after {
 
 .contributions-tabs {
   display: flex;
-  gap: calc(var(--spacing-unit) * 1);
-  margin-bottom: calc(var(--spacing-unit) * 4);
-  background: rgba(0, 0, 0, 0.03);
+  gap: 4px;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  background: #ffffff;
   border-radius: 10px;
   padding: 4px;
-  border: 1px solid rgba(184, 137, 74, 0.18);
+  border: 1px solid rgba(142, 37, 54, 0.14);
 }
 
 .tab-button {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 1.5);
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 10px;
   background: transparent;
   border: none;
-  border-radius: 6px;
-  color: var(--text-secondary);
-  font-size: 0.78rem;
+  border-radius: 8px;
+  color: var(--accent-caramel);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   flex: 1;
 }
 
 .tab-button:hover {
-  color: var(--text-primary);
-  background: rgba(184, 137, 74, 0.1);
+  color: var(--accent-mocha);
+  background: rgba(142, 37, 54, 0.06);
 }
 
 .tab-button.active {
-  background: linear-gradient(
-    135deg,
-    rgba(184, 137, 74, 0.55) 0%,
-    rgba(107, 79, 61, 0.6) 50%,
-    rgba(58, 44, 32, 0.7) 100%
-  );
+  background: var(--accent-caramel);
   color: #ffffff;
-  box-shadow:
-    0 4px 20px rgba(184, 137, 74, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  box-shadow: none;
 }
 
 .tab-icon {
@@ -3300,27 +3389,27 @@ body::after {
   }
 
   .contributions-header {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
-  .contributions-intro {
-    margin-bottom: 0;
+  .contributions-title-row {
+    align-items: center;
+    gap: 8px;
   }
 
   .contributions-title {
-    font-size: 1rem;
-    margin-bottom: 6px;
+    font-size: 0.92rem;
+  }
+
+  .contributions-stat-badge {
+    font-size: 0.56rem;
+    padding: 3px 7px;
+    margin-top: 0;
   }
 
   .contributions-description {
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  .contributions-stats {
-    justify-content: flex-start;
+    font-size: 0.76rem;
+    max-width: none;
   }
 
   .contributions-tabs {
@@ -3332,6 +3421,8 @@ body::after {
     margin-bottom: 16px !important;
     overflow: visible !important;
     box-sizing: border-box !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(142, 37, 54, 0.14) !important;
   }
 
   .contributions-tabs::-webkit-scrollbar {
@@ -3344,12 +3435,24 @@ body::after {
     min-width: 0 !important;
     justify-content: center !important;
     text-align: center !important;
-    min-height: 44px !important;
-    padding: 0.45rem 0.35rem !important;
-    font-size: 0.66rem !important;
+    min-height: 40px !important;
+    padding: 0.4rem 0.3rem !important;
+    font-size: 0.64rem !important;
     line-height: 1.25 !important;
     white-space: normal !important;
     border-radius: 8px !important;
+    font-family: "Inter", sans-serif !important;
+    color: var(--accent-caramel) !important;
+  }
+
+  .tab-button.active {
+    background: var(--accent-caramel) !important;
+    color: #ffffff !important;
+  }
+
+  .tab-button:hover:not(.active) {
+    background: rgba(142, 37, 54, 0.06) !important;
+    color: var(--accent-mocha) !important;
   }
 
   .tab-icon {
@@ -3407,20 +3510,7 @@ body::after {
   }
 
   .contributions-description {
-    font-size: 0.78rem;
-  }
-
-  .stat-item {
-    padding: 8px 10px;
-    min-width: 55px;
-  }
-
-  .stat-number {
-    font-size: 1rem;
-  }
-
-  .stat-label {
-    font-size: 0.62rem;
+    font-size: 0.74rem;
   }
 }
 
@@ -4078,7 +4168,7 @@ body::after {
   position: relative;
   align-items: baseline !important;
   gap: 14px !important;
-  margin-bottom: 24px !important;
+  margin-bottom: 28px !important;
 }
 
 .section-heading::before {
@@ -4093,7 +4183,7 @@ body::after {
   counter-reset: none;
 }
 
-/* Section spacing — tighter, more editorial */
+/* Section spacing */
 .about-section,
 .open-source-section,
 .recognition-section,
@@ -4101,9 +4191,29 @@ body::after {
 .projects-section,
 .tech-stack-section,
 .chat-section {
-  margin: 0 0 56px !important;
+  margin: 0 0 64px !important;
   padding: 0 !important;
   max-width: 100% !important;
+}
+
+.about-section {
+  margin-bottom: 80px !important;
+}
+
+.open-source-section {
+  padding-top: 12px !important;
+}
+
+.open-source-section .section-heading {
+  margin-bottom: 32px !important;
+}
+
+.recognition-section .section-heading,
+.experience-section .section-heading,
+.projects-section .section-heading,
+.tech-stack-section .section-heading,
+.chat-section .section-heading {
+  margin-bottom: 28px !important;
 }
 
 .about-section::before {
@@ -4221,11 +4331,20 @@ main.container {
   .projects-section,
   .tech-stack-section,
   .chat-section {
-    margin-bottom: 40px !important;
+    margin-bottom: 48px !important;
+  }
+
+  .about-section {
+    margin-bottom: 56px !important;
   }
 
   .open-source-section {
-    margin-bottom: 40px !important;
+    padding-top: 8px !important;
+    margin-bottom: 48px !important;
+  }
+
+  .open-source-section .section-heading {
+    margin-bottom: 24px !important;
   }
 
   .tech-stack-section .tech-categories {

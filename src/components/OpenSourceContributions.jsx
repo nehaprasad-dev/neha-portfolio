@@ -216,21 +216,16 @@ export default function OpenSourceContributions() {
     <div className="contributions-container">
       <div className="contributions-header">
         <div className="contributions-intro">
-          <h3 className="contributions-title">
-            Building the Future, One PR at a Time
-          </h3>
-          <p className="contributions-description">
-            Contributing to open source projects that power the modern web. From
-            bug fixes to new features, I believe in giving back to the developer
-            community that has given so much to me.
-          </p>
-        </div>
-
-        <div className="contributions-stats">
-          <div className="stat-item">
-            <div className="stat-number">150+</div>
-            <div className="stat-label">PR merged</div>
+          <div className="contributions-title-row">
+            <h3 className="contributions-title">
+              Building the Future, One PR at a Time
+            </h3>
+            <span className="contributions-stat-badge">150+ PRs</span>
           </div>
+          <p className="contributions-description">
+            Production open source across AI frameworks - fixes, features, and
+            docs.
+          </p>
         </div>
       </div>
 

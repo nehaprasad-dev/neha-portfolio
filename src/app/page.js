@@ -52,7 +52,7 @@ export default function Home() {
     {
       title: "CodeTrust",
       description:
-        "AI-powered tool that analyzes code or pull requests and returns a clear verdict—Safe, Risky, or Block—so developers catch issues early and ship with confidence.",
+        "Reviews code and PRs with Safe, Risky, or Block verdicts - catch issues early and ship with confidence.",
       image: "/codetr.png",
       liveLink: "https://codetrust-lilac.vercel.app",
       repoLink: "https://github.com/nehaaprasad/codetrust",
@@ -69,7 +69,7 @@ export default function Home() {
     {
       title: "CareTalk(Agent)",
       description:
-        "CrTk is an AI-driven mental health app with real-time therapy, mood tracking, and crisis support—built for privacy, empathy, and scale.",
+        "AI mental health app with real-time therapy, mood tracking, and crisis support - built for privacy and scale.",
       image: "/care.png",
       liveLink: "https://caretalk-agent.vercel.app/",
       repoLink: "https://github.com/nehaaprasad/caretalk-agent",
@@ -88,7 +88,7 @@ export default function Home() {
     {
       title: "Heariffy(Audio Classification)",
       description:
-        "Real‑time audio‑classification web app using a PyTorch CNN model served via FastAPI in a React/Tailwind frontend.",
+        "Real-time audio classification with a PyTorch CNN model, FastAPI backend, and React frontend.",
       image: "/aud.png",
       liveLink: "https://heariffy-byu8.vercel.app/",
       repoLink: "https://github.com/nehaaprasad/heariffy",
@@ -105,7 +105,7 @@ export default function Home() {
     {
       title: "Eonlogic(AI Site Builder)",
       description:
-        "AI Site Builder that instantly generates business websites using React, Next.js & Express.",
+        "AI site builder that generates business websites instantly using React, Next.js, and Express.",
       image: "/eon.png",
       liveLink: "https://eonlogic-mk8l.vercel.app/",
       repoLink: "https://github.com/nehaaprasad/eonlogic",
@@ -115,7 +115,7 @@ export default function Home() {
     {
       title: "EDUNO(LMS)",
       description:
-        "AI‑driven tutoring platform with personalized voice tutors, built on React, Next.js & Supabase.",
+        "AI tutoring platform with personalized voice tutors, built on React, Next.js, and Supabase.",
       image: "/lms.png",
       liveLink: "https://lms-app-navy.vercel.app/",
       repoLink: "https://github.com/nehaaprasad/lms-app",
@@ -346,24 +346,31 @@ export default function Home() {
         <section className="about-section" id="about">
           <SectionHeading title="ABOUT" icon="about" />
           <div className="about-content">
-            <div className="about-summary">
-              I&apos;m a full-stack developer who actually ships.
-              <br />
-              <br />- Built DigiNav AI - an autonomous regulatory co-pilot
-              (incorporation, GST, licenses) in 1 day
-              <br />- Built CodeTrust - AI that reviews code/PRs and gives Safe
-              / Risky / Block verdicts
-              <br />- 150+ merged open-source PRs in production AI frameworks
-              (Mastra, LlamaIndex, LiteLLM, OpenHands, Next.js)
-              <br />- Strong with: Next.js, TypeScript, Python, LLM agents,
-              PostgreSQL, Tailwind, Shadcn
-              <br />
-              <br />
-              I move fast, communicate clearly, and deliver clean, production
-              code.
-              <br />
-              <br />
-              If you need something built this week, I&apos;m available.
+            <p className="about-lead">
+              Full-stack developer who ships - LLM agents, production web apps,
+              and open source.
+            </p>
+
+            <div className="about-block">
+              <h3 className="about-label">Built</h3>
+              <ul className="about-list">
+                <li>
+                  <strong>DigiNav AI</strong> - regulatory co-pilot for
+                  incorporation, GST, and licenses (shipped in 1 day)
+                </li>
+                <li>
+                  <strong>CodeTrust</strong> - AI that reviews code and PRs with
+                  Safe / Risky / Block verdicts
+                </li>
+              </ul>
+            </div>
+
+            <div className="about-block">
+              <h3 className="about-label">Open source</h3>
+              <p className="about-text-block">
+                150+ merged PRs across Mastra, LlamaIndex, LiteLLM, OpenHands,
+                and Next.js.
+              </p>
             </div>
           </div>
         </section>
@@ -592,7 +599,7 @@ export default function Home() {
             </div>
 
             <div className="tech-category">
-              <h3 className="category-title">Familiar (0 – 6 Months)</h3>
+              <h3 className="category-title">Familiar (0 - 6 Months)</h3>
               <div className="tech-items">
                 <div className="tech-item">
                   <span>🐳 Docker</span>
@@ -651,7 +658,7 @@ export default function Home() {
               </div>
               <h2 className="chat-title">Ready to chat?</h2>
               <p className="chat-description">
-                Pick a time — free 15 or 30 minute call.
+                Pick a time - free 15 or 30 minute call.
               </p>
               <div className="chat-buttons">
                 <a
