@@ -3239,7 +3239,7 @@ body::after {
 }
 
 .cta-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   padding: 7px 14px;
@@ -3250,6 +3250,12 @@ body::after {
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   position: relative;
   overflow: hidden;
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.cta-label-short {
+  display: none;
 }
 
 .cta-button::before {
@@ -3353,21 +3359,41 @@ body::after {
   }
 
   .contributions-cta {
-    margin-top: 20px;
+    margin-top: 16px;
+    padding: 12px;
+  }
+
+  .cta-text {
+    font-size: 0.76rem;
+    margin-bottom: 10px;
   }
 
   .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
   }
 
-  .cta-button {
-    width: auto;
-    max-width: 100%;
-    justify-content: center;
-    min-height: 34px;
-    padding: 6px 14px;
+  .cta-label-long {
+    display: none !important;
+  }
+
+  .cta-label-short {
+    display: inline !important;
+  }
+
+  .contributions-cta .cta-button {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+    padding: 5px 12px !important;
+    font-size: 0.64rem !important;
   }
 }
 
@@ -4334,6 +4360,33 @@ main.container {
   }
   .section-title {
     font-size: 1.4rem !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .contributions-cta .cta-buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .contributions-cta .cta-button {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    padding: 5px 12px !important;
+    font-size: 0.64rem !important;
+  }
+
+  .contributions-cta .cta-label-long {
+    display: none !important;
+  }
+
+  .contributions-cta .cta-label-short {
+    display: inline !important;
   }
 }
 
