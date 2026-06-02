@@ -49,6 +49,28 @@ export default function Home() {
 
   // Define your projects data
   const projects = [
+
+
+    {
+      title: "ComplianceScore",
+      description:
+        "CompliScore is a free 60-second health check for Indian startups. Type your company name, get a score out of 100, see what's overdue, and know exactly what to fix - no login, no jargon.",
+      image: "/compl.png",
+      liveLink: "https://compliscore-nu.vercel.app/",
+      repoLink: "https://github.com/nehaprasad-dev/compliscore",
+      techStack: [
+        "React",
+        "Next.js",
+        "TailwindCSS",
+        "MongoDB",
+
+        "Node.js",
+
+        "Sentry",
+      ],
+    },
+
+
     {
       title: "CodeTrust",
       description:
