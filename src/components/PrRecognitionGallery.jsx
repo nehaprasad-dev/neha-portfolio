@@ -47,9 +47,9 @@ const ITEMS = [
   },
   {
     src: "/mg1.png",
-    alt: "tldraw merged PR",
-    prUrl: "https://github.com/tldraw/tldraw/pull/6987",
-    label: "tldraw #6987",
+    alt: "VC-builder Post on LinkedIn",
+    prUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7465349318556790784/",
+    label: "LinkedIn #7465349318556790784",
   },
   {
     src: "/mg2.png",
@@ -87,6 +87,14 @@ const ITEMS = [
     prUrl:
       "https://github.com/OpenHands/OpenHands/pull/13418",
     label: "OpenHands #13418",
+  },
+
+  {
+    src: "/mg7.png",
+    alt: "tldraw Merged PR",
+    prUrl:
+      "https://github.com/tldraw/tldraw/pull/6987",
+    label: "tldraw #6987",
   },
 ];
 
