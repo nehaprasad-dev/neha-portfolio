@@ -1,6 +1,9 @@
-# Neha Prasad — Portfolio
+# Neha Prasad - Portfolio
 
 Personal portfolio site for **Neha Prasad**, full-stack engineer focused on LLM agents, production web apps, and open source.
+
+<img width="1353" height="607" alt="image" src="https://github.com/user-attachments/assets/6133c85b-4811-4ca3-8f14-1cbfa1a37a8a" />
+
 
 Built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**.
 
