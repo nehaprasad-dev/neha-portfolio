@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import type { RecognitionItem } from "@/types/portfolio";
 
-function GitHubMark({ className }) {
+function GitHubMark({ className }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -17,7 +18,7 @@ function GitHubMark({ className }) {
   );
 }
 
-function ExternalLinkIcon({ className }) {
+function ExternalLinkIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -38,7 +39,7 @@ function ExternalLinkIcon({ className }) {
   );
 }
 
-const ITEMS = [
+const ITEMS: RecognitionItem[] = [
   {
     src: "/mg.png",
     alt: "OpenHands merged PR",
@@ -98,7 +99,7 @@ const ITEMS = [
   },
 ];
 
-function Cell({ src, alt, prUrl, label }) {
+function Cell({ src, alt, prUrl, label }: RecognitionItem) {
   const overlay = (
     <div className="recognition-overlay" aria-hidden="true">
       <span className="recognition-badge">PR merged</span>

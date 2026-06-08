@@ -10,10 +10,11 @@ import StatusIndicator from "@/components/StatusIndicator";
 import OpenSourceContributions from "@/components/OpenSourceContributions";
 import PrRecognitionGallery from "@/components/PrRecognitionGallery";
 import SectionHeading from "@/components/SectionHeading";
+import type { Project, TocItem } from "@/types/portfolio";
 
 export default function Home() {
-  const pathRef = useRef(null);
-  const containerRef = useRef(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Add this effect to handle mouse movement
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function Home() {
 
     if (!container || !path) return;
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left; // x position within the container
       const y = e.clientY - rect.top; // y position within the container
@@ -47,8 +48,7 @@ export default function Home() {
     };
   }, []);
 
-  // Define your projects data
-  const projects = [
+  const projects: Project[] = [
 
 
     {
@@ -161,7 +161,7 @@ export default function Home() {
 
   ];
 
-  const tocItems = [
+  const tocItems: TocItem[] = [
     { num: "a", label: "About", href: "#about" },
     { num: "b", label: "Open Source", href: "#open-source" },
     { num: "c", label: "Recognition", href: "#recognition" },

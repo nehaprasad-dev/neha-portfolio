@@ -1,4 +1,7 @@
-const icons = {
+import type { ReactNode } from "react";
+import type { SectionIcon } from "@/types/portfolio";
+
+const icons: Record<SectionIcon, ReactNode> = {
   about: (
     <svg
       width="22"
@@ -119,11 +122,12 @@ const icons = {
   ),
 };
 
-/**
- * Section title row with circular icon (matches Recognition styling site-wide).
- * @param {{ title: string; icon: keyof typeof icons }} props
- */
-export default function SectionHeading({ title, icon }) {
+type SectionHeadingProps = {
+  title: string;
+  icon: SectionIcon;
+};
+
+export default function SectionHeading({ title, icon }: SectionHeadingProps) {
   const graphic = icons[icon];
   if (!graphic) return <h2 className="section-title">{title}</h2>;
 

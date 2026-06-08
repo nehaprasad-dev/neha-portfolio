@@ -1,12 +1,18 @@
+import type { ReactNode } from "react";
+import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Neha Prasad - Full Stack Developer",
   description:
     "Full Stack Developer specializing in React, Next.js, and modern web technologies",
 };
 
-export default function RootLayout({ children }) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>

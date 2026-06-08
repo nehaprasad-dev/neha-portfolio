@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import type { Contribution, ContributionTab } from "@/types/portfolio";
 
 export default function OpenSourceContributions() {
-  const [activeTab, setActiveTab] = useState("merged"); // Changed from "open" to "merged"
+  const [activeTab, setActiveTab] = useState<ContributionTab>("merged");
 
   const contributions = {
     merged: [
@@ -210,7 +211,7 @@ export default function OpenSourceContributions() {
         url: "https://github.com/nehaaprasad",
       },
     ],
-  };
+  } satisfies Record<ContributionTab, Contribution[]>;
 
   return (
     <div className="contributions-container">

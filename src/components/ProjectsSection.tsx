@@ -1,18 +1,21 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import RepositoryLink from "./RepositoryLink";
 import SectionHeading from "@/components/SectionHeading";
+import type { Project, ProjectCardSize } from "@/types/portfolio";
 
-export default function ProjectsSection({ projects }) {
+type ProjectsSectionProps = {
+  projects: Project[];
+};
+
+export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [showAll, setShowAll] = useState(false);
 
-  // Initially show only 4 projects
   const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
-  // Determine card size based on content
-  const getCardSize = (project) => {
-    // Make shorter content cards smaller
+  const getCardSize = (project: Project): ProjectCardSize => {
     if (
       project.title === "HealthPulse" ||
       project.title === "DineDash" ||
@@ -31,7 +34,7 @@ export default function ProjectsSection({ projects }) {
           <div
             className="project-card"
             data-size={getCardSize(project)}
-            key={index}
+            key={project.title}
           >
             <a
               href={project.liveLink}
@@ -52,8 +55,8 @@ export default function ProjectsSection({ projects }) {
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="tech-stack-tags">
-                  {project.techStack.map((tech, techIndex) => (
-                    <span className="tech-stack-tag" key={techIndex}>
+                  {project.techStack.map((tech) => (
+                    <span className="tech-stack-tag" key={tech}>
                       {tech}
                     </span>
                   ))}
@@ -138,7 +141,6 @@ export default function ProjectsSection({ projects }) {
         ))}
       </div>
 
-      {/* Show More/Less button */}
       {projects.length > 4 && (
         <button
           className="show-more-button"

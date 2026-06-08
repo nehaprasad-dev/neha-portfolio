@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 
 export default function Timer() {
@@ -7,7 +8,7 @@ export default function Timer() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options = {
+      const options: Intl.DateTimeFormatOptions = {
         timeZone: "Asia/Kolkata",
         hour12: true,
         hour: "2-digit",
