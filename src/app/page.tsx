@@ -163,10 +163,10 @@ export default function Home() {
 
   const tocItems: TocItem[] = [
     { num: "a", label: "About", href: "#about" },
-    { num: "b", label: "Open Source", href: "#open-source" },
-    { num: "c", label: "Recognition", href: "#recognition" },
-    { num: "d", label: "Experience", href: "#experience" },
-    { num: "e", label: "Projects", href: "#projects" },
+    { num: "b", label: "Experience", href: "#experience" },
+    { num: "c", label: "Projects", href: "#projects" },
+    { num: "d", label: "Open Source", href: "#open-source" },
+    { num: "e", label: "Recognition", href: "#recognition" },
     { num: "f", label: "Stack", href: "#tech-stack" },
     { num: "g", label: "Contact", href: "#contact" },
   ];
@@ -179,18 +179,30 @@ export default function Home() {
             <span className="header-name-first">Neha</span>
             <span className="header-name-last"> Prasad</span>
           </Link>
-          <span className="header-mobile-badge">
-            <span className="header-status-dot" aria-hidden />
-            Open Source
-          </span>
+          <a
+            href="https://nehacodes.hashnode.dev/"
+            className="header-mobile-blog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Blog ↗
+          </a>
         </div>
         <nav className="nav-links" aria-label="Site sections">
           <Link href="#about" className="nav-link">About</Link>
-          <Link href="#open-source" className="nav-link">Open Source</Link>
-          <Link href="#recognition" className="nav-link">Recognition</Link>
           <Link href="#experience" className="nav-link">Experience</Link>
           <Link href="#projects" className="nav-link">Projects</Link>
+          <Link href="#open-source" className="nav-link">Open Source</Link>
+          <Link href="#recognition" className="nav-link">Recognition</Link>
           <Link href="#tech-stack" className="nav-link">Stack</Link>
+          <a
+            href="https://nehacodes.hashnode.dev/"
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Blog
+          </a>
         </nav>
       </header>
 
@@ -227,7 +239,7 @@ export default function Home() {
               <li><a href="https://github.com/nehaaprasad" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></li>
               <li><a href="https://x.com/nehaaaa_6" target="_blank" rel="noopener noreferrer">X / TWITTER ↗</a></li>
               <li><a href="https://www.linkedin.com/in/neha-prasad-92499821b/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a></li>
-              <li><a href="https://www.instagram.com/nehaaprasad_/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></li>
+              <li><a href="https://www.instagram.com/nehabytess/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></li>
               <li><a href="https://nehacodes.hashnode.dev/" target="_blank" rel="noopener noreferrer">BLOG ↗</a></li>
               <li><a href="mailto:nehaaprasad06@gmail.com">EMAIL</a></li>
             </ul>
@@ -342,7 +354,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://www.instagram.com/nehaaprasad_/"
+                href="https://www.instagram.com/nehabytess/"
                 className="social-link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -358,25 +370,6 @@ export default function Home() {
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                 </svg>
                 Instagram
-              </a>
-
-              <a
-                href="https://nehacodes.hashnode.dev/"
-                className="social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M22.46 6.15c-.14-.23-.39-.35-.64-.28l-4.88 1.38c-.1.03-.2.1-.23.2l-.83 2.94c-.05.18.04.37.2.47.16.1.37.08.5-.05l3.29-.93c.1-.03.2-.1.23-.2l.83-2.94c.05-.18-.04-.37-.2-.47-.05-.03-.1-.05-.15-.05l-1.38.39c-.1.03-.2.1-.23.2l-.83 2.94c-.05.18.04.37.2.47.16.1.37.08.5-.05l3.29-.93c.25-.07.43-.29.39-.54zm-8.71 8.71c-.14-.23-.39-.35-.64-.28l-4.88 1.38c-.1.03-.2.1-.23.2l-.83 2.94c-.05.18.04.37.2.47.16.1.37.08.5-.05l3.29-.93c.1-.03.2-.1.23-.2l.83-2.94c.05-.18-.04-.37-.2-.47-.05-.03-.1-.05-.15-.05l-1.38.39c-.1.03-.2.1-.23.2l-.83 2.94c-.05.18.04.37.2.47.16.1.37.08.5-.05l3.29-.93c.25-.07.43-.29.39-.54z" />
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" />
-                </svg>
-                Blog
               </a>
               </div>
             </div>
@@ -413,24 +406,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </section>
-
-        <section className="open-source-section" id="open-source">
-          <SectionHeading
-            title="OPEN SOURCE CONTRIBUTIONS"
-            icon="openSource"
-          />
-          <OpenSourceContributions />
-        </section>
-
-        <section className="recognition-section" id="recognition">
-          <SectionHeading title="RECOGNITION" icon="recognition" />
-          <p className="recognition-intro">
-            My PRs have been praised by founders and maintainers of{" "}
-            <strong>Mastra</strong>, <strong>PostHog</strong>, and{" "}
-            <strong>LiteLLM</strong>.
-          </p>
-          <PrRecognitionGallery />
         </section>
 
         <section className="experience-section" id="experience">
@@ -566,6 +541,24 @@ export default function Home() {
         </section>
 
         <ProjectsSection projects={projects} />
+
+        <section className="open-source-section" id="open-source">
+          <SectionHeading
+            title="OPEN SOURCE CONTRIBUTIONS"
+            icon="openSource"
+          />
+          <OpenSourceContributions />
+        </section>
+
+        <section className="recognition-section" id="recognition">
+          <SectionHeading title="RECOGNITION" icon="recognition" />
+          <p className="recognition-intro">
+            My PRs have been praised by founders and maintainers of{" "}
+            <strong>Mastra</strong>, <strong>PostHog</strong>, and{" "}
+            <strong>LiteLLM</strong>.
+          </p>
+          <PrRecognitionGallery />
+        </section>
 
         <section className="tech-stack-section" id="tech-stack">
           <SectionHeading title="TECH STACK" icon="tech" />

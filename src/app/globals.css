@@ -165,6 +165,21 @@ body {
   color: var(--text-primary);
 }
 
+.header-mobile-blog {
+  display: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(142, 37, 54, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+}
+
 .header-status-dot {
   width: 7px;
   height: 7px;
@@ -4312,6 +4327,11 @@ main.container {
     gap: 12px;
   }
 
+  .header-mobile-blog {
+    display: inline-flex !important;
+    align-items: center;
+  }
+
   .nav-links {
     display: none !important;
   }
@@ -4456,6 +4476,10 @@ main.container {
   .header-name-first,
   .header-name-last {
     font-size: 1.05rem !important;
+  }
+
+  .header-mobile-blog {
+    font-size: 0.62rem !important;
   }
 
   .header-mobile-badge {
