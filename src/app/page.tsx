@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import StatusIndicator from "@/components/StatusIndicator";
 import OpenSourceContributions from "@/components/OpenSourceContributions";
 import PrRecognitionGallery from "@/components/PrRecognitionGallery";
+import ContactSection from "@/components/ContactSection";
 import SectionHeading from "@/components/SectionHeading";
 import type { Project, TocItem } from "@/types/portfolio";
 
@@ -651,74 +652,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="chat-section" id="contact">
-          <SectionHeading title="LET&apos;S TALK" icon="chat" />
-          <div className="chat-container">
-            <div className="chat-left">
-              <h3>Start here</h3>
-              <h2>
-                Let&apos;s hop on a quick call and see if we&apos;re a good fit.
-              </h2>
-              <p>
-                Open to freelance, full-time roles, or collaborating on open
-                source.
-              </p>
-            </div>
-            <div className="chat-right">
-              <div className="chat-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 11 12.7L2 7"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <h2 className="chat-title">Ready to chat?</h2>
-              <p className="chat-description">
-                Pick a time - free 15 or 30 minute call.
-              </p>
-              <div className="chat-buttons">
-                <a
-                  href="https://cal.com/nehaaa06/15min"
-                  className="chat-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="chat-button-icon">🕒</span>
-                  15 Min Quick Chat
-                </a>
-                <a
-                  href="https://cal.com/nehaaa06/30min"
-                  className="chat-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="chat-button-icon">📅</span>
-                  30 Min Deep Dive
-                </a>
-              </div>
-              <p className="chat-quote">
-                One conversation away from building something great.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ContactSection />
         </main>
       </div>
       <div className="bottom-line-container" ref={containerRef}>

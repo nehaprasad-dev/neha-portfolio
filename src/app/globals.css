@@ -2013,6 +2013,167 @@ body::after {
   display: none;
 }
 
+/* Contact booking — inline calendar */
+.contact-section {
+  max-width: 100%;
+}
+
+.contact-intro {
+  text-align: center;
+  margin: 0 auto 28px;
+  max-width: 640px;
+}
+
+.contact-eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
+}
+
+.contact-headline {
+  font-family: "Fraunces", "Georgia", serif;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+}
+
+.contact-audience {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+.contact-cal-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 252, 249, 0.9) 100%);
+  border: 1px solid rgba(142, 37, 54, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(90, 20, 36, 0.06);
+  overflow: hidden;
+}
+
+.contact-cal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(142, 37, 54, 0.1);
+}
+
+.contact-cal-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.contact-cal-open {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-cal-open:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-duration {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(142, 37, 54, 0.06);
+  border: 1px solid rgba(142, 37, 54, 0.1);
+}
+
+.contact-duration-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-duration-btn.is-active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.contact-duration-btn:hover:not(.is-active) {
+  color: var(--text-primary);
+}
+
+.contact-cal-embed {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  height: 720px;
+  background: #fff;
+}
+
+.contact-cal-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.contact-cal-embed iframe {
+  border: 0 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-email {
+  text-align: center;
+  margin: 18px 0 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.contact-email a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-email a:hover {
+  color: var(--accent-mocha);
+}
+
+@media (max-width: 720px) {
+  .contact-cal-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-cal-embed {
+    min-height: 820px;
+    height: 820px;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .chat-section {
