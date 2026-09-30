@@ -2020,7 +2020,7 @@ body::after {
 
 .contact-intro {
   text-align: center;
-  margin: 0 auto 28px;
+  margin: 0 auto 16px;
   max-width: 640px;
 }
 
@@ -2065,7 +2065,7 @@ body::after {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 18px;
+  padding: 10px 16px;
   border-bottom: 1px solid rgba(142, 37, 54, 0.1);
 }
 
@@ -2121,9 +2121,15 @@ body::after {
 .contact-cal-embed {
   position: relative;
   width: 100%;
-  min-height: 720px;
-  height: 720px;
+  height: 520px;
+  min-height: 0;
   background: #fff;
+  overflow: hidden;
+}
+
+.contact-cal-embed > div {
+  height: 100% !important;
+  min-height: 0 !important;
 }
 
 .contact-cal-loading {
@@ -2146,7 +2152,7 @@ body::after {
 
 .contact-email {
   text-align: center;
-  margin: 18px 0 0;
+  margin: 12px 0 0;
   font-size: 0.88rem;
   color: var(--text-secondary);
 }
@@ -2169,8 +2175,7 @@ body::after {
   }
 
   .contact-cal-embed {
-    min-height: 820px;
-    height: 820px;
+    height: 640px;
   }
 }
 
@@ -4389,9 +4394,13 @@ body::after {
 .recognition-section .section-heading,
 .experience-section .section-heading,
 .projects-section .section-heading,
-.tech-stack-section .section-heading,
-.chat-section .section-heading {
+.tech-stack-section .section-heading {
   margin-bottom: 28px !important;
+}
+
+.chat-section .section-heading,
+.contact-section .section-heading {
+  margin-bottom: 16px !important;
 }
 
 .about-section::before {
