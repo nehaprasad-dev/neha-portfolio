@@ -11,7 +11,7 @@ const SLOTS = [
 
 type SlotId = (typeof SLOTS)[number]["id"];
 
-const EMAIL = "nehaaprasad06@gmail.com";
+const EMAIL = "nehaprasad27118@gmail.com";
 
 export default function ContactSection() {
   const [slot, setSlot] = useState<SlotId>("30min");

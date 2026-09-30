@@ -242,7 +242,7 @@ export default function Home() {
               <li><a href="https://www.linkedin.com/in/neha-prasad-92499821b/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a></li>
               <li><a href="https://www.instagram.com/nehabytess/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></li>
               <li><a href="https://nehacodes.hashnode.dev/" target="_blank" rel="noopener noreferrer">BLOG ↗</a></li>
-              <li><a href="mailto:nehaaprasad06@gmail.com">EMAIL</a></li>
+              <li><a href="mailto:nehaprasad27118@gmail.com">EMAIL</a></li>
             </ul>
           </div>
         </aside>
@@ -412,125 +412,122 @@ export default function Home() {
         <section className="experience-section" id="experience">
           <SectionHeading title="EXPERIENCE" icon="experience" />
           <div className="experience-list">
-            
-            
-            
-        
-
-
+            <div className="experience-item">
+              <h3 className="experience-title-styled">Fellow</h3>
+              <h4 className="experience-company-container">
+                <a
+                  href="https://16vc.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="experience-company-link"
+                >
+                  16VC
+                </a>
+                <img
+                  src="/16vc.svg"
+                  alt="16VC logo"
+                  width={20}
+                  height={20}
+                  className="company-logo"
+                />
+              </h4>
+              <div className="experience-gap"></div>
+              <p className="experience-description">
+                • Summer Founder Fellowship 2026 — San Francisco Bay Area · Remote.
+              </p>
+              <div className="experience-timeline">Jun/2026 - Sep/2026</div>
+            </div>
 
             <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled">Open Source Community Growth Contributor</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://www.warestack.com/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 Warestack, Inc.
-               </a>
-               <Image
-                 src="/warestck.png"
-                 alt="Warestack, Inc. logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
+              <h3 className="experience-title-styled">
+                Open Source Community Growth Contributor
+              </h3>
+              <h4 className="experience-company-container">
+                <a
+                  href="https://www.warestack.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="experience-company-link"
+                >
+                  Warestack, Inc. · Part-time
+                </a>
+                <Image
+                  src="/warestck.png"
+                  alt="Warestack, Inc. logo"
+                  width={20}
+                  height={20}
+                  className="company-logo"
+                />
+              </h4>
+              <div className="experience-gap"></div>
+              <p className="experience-description">
+                • Reached out to active GitHub organizations and introduced WatchFlow
+                to open-source communities where it can be adopted effectively.
+                <br />• Onboarded 15+ GitHub organizations onto Watchflow, growing
+                open-source adoption and community engagement.
+                <br />• Reviewed and improved 30+ pull requests, raising contribution
+                quality and cutting average review time by ~25%.
+              </p>
+              <div className="experience-timeline">Dec/2025 - May/2026</div>
+            </div>
 
+            <div className="experience-item">
+              <h3 className="experience-title-styled">Software Engineer</h3>
+              <h4 className="experience-company-container">
+                <a
+                  href="https://nfrontventures.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="experience-company-link"
+                >
+                  nFront Ventures · Full-time
+                </a>
+                <Image
+                  src="/nfront.png"
+                  alt="nFront Ventures logo"
+                  width={20}
+                  height={20}
+                  className="company-logo"
+                />
+              </h4>
+              <div className="experience-gap"></div>
+              <p className="experience-description">
+                • Built and improved features for nFront Academy, a white-labeled
+                platform used by VC funds and their portfolio companies.
+                <br />• Shipped production work used by 10+ VC funds, reaching 2,000+
+                users, with clean Next.js / TypeScript delivery.
+              </p>
+              <div className="experience-timeline">Aug/2025 - Jan/2026</div>
+            </div>
 
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               • Onboarded 15+ GitHub organizations onto Watchflow, growing open-source adoption and community engagement.
-               <br />• Reviewed and improved 30+ pull requests, raising contribution quality and cutting average review time by ~25%.
-             </p>
-             <div className="experience-timeline">Dec/2025 - Present</div>
-           
-           </div>
-
-
-
-           <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled"> Software Engineer Intern</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://nfrontventures.com/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 nFront Ventures
-               </a>
-               <Image
-                 src="/nfront.png"
-                 alt="nFront Ventures logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
-
-
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               • Built production features for nFront Academy, a white-label platform used by 10+ VC funds, reaching 2,000+ users.
-               <br />• Partnered directly with the founder on roadmap, architecture, and clean Next.js / TypeScript delivery - zero regressions.
-             </p>
-             <div className="experience-timeline">Aug/2025 - Jan/2026</div>
-           
-           </div>
-
-
-           <div className="experience-item">
-             
-             
-             <h3 className="experience-title-styled">Intern</h3>
-            
-            
-            
-             <h4 className="experience-company-container">
-               <a
-                 href="https://keploy.io/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="experience-company-link"
-               >
-                 Keploy
-               </a>
-               <Image
-                 src="/lg1.png"
-                 alt="Keploy logo"
-                 width={20}
-                 height={20}
-                 className="company-logo"
-               />
-             </h4>
-
-
-             <div className="experience-gap"></div>
-             <p className="experience-description">
-               • Enhanced automated test generation from API traffic, strengthening deterministic testing and mocking for modern APIs.
-               <br />• Resolved critical bugs, streamlined documentation, and supported the community to accelerate adoption.
-             </p>
-             <div className="experience-timeline">May/2025 - July/2025</div>
-           
-           </div>
-
-
-
-
-
+            <div className="experience-item">
+              <h3 className="experience-title-styled">Intern</h3>
+              <h4 className="experience-company-container">
+                <a
+                  href="https://keploy.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="experience-company-link"
+                >
+                  Keploy · Internship
+                </a>
+                <Image
+                  src="/lg1.png"
+                  alt="Keploy logo"
+                  width={20}
+                  height={20}
+                  className="company-logo"
+                />
+              </h4>
+              <div className="experience-gap"></div>
+              <p className="experience-description">
+                • Enhancements in the open-source OSS for automated test generation
+                from API traffic.
+                <br />• Collaborated closely with the Keploy core team and community
+                contributors to improve test-case generation, docs, and adoption.
+              </p>
+              <div className="experience-timeline">May/2025 - Jul/2025</div>
+            </div>
           </div>
 
 
