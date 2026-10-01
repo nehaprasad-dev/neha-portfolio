@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
-import SectionHeading from "@/components/SectionHeading";
+import { EMAIL } from "@/data/portfolio";
 
 const SLOTS = [
   { id: "15min", label: "15 min", calLink: "nehaaa06/15min" },
@@ -11,80 +11,81 @@ const SLOTS = [
 
 type SlotId = (typeof SLOTS)[number]["id"];
 
-const EMAIL = "nehaprasad27118@gmail.com";
-
 export default function ContactSection() {
+  const [open, setOpen] = useState(false);
   const [slot, setSlot] = useState<SlotId>("30min");
   const active = SLOTS.find((item) => item.id === slot) ?? SLOTS[1];
 
   useEffect(() => {
+    if (!open) return;
     (async () => {
       const cal = await getCalApi({ namespace: slot });
-      cal("ui", {
-        hideEventTypeDetails: false,
-        layout: "month_view",
-        theme: "light",
-      });
+      cal("ui", { hideEventTypeDetails: true, layout: "month_view" });
     })();
-  }, [slot]);
+  }, [open, slot]);
 
   return (
-    <section className="chat-section contact-section" id="contact">
-      <SectionHeading title="CONTACT" icon="chat" />
+    <section id="contact" className="section contact" aria-labelledby="contact-title">
+      <header className="section-head">
+        <h2 id="contact-title" className="section-title">
+          Contact
+        </h2>
+      </header>
+      <div className="section-body">
+        <p className="contact-line">Tell me what you&apos;re shipping.</p>
+        <p className="contact-sub">Founders, engineers and recruiters all welcome.</p>
 
-      <div className="contact-intro">
-        <p className="contact-eyebrow">Book a call</p>
-        <h3 className="contact-headline">Tell me what you&apos;re shipping.</h3>
-        <p className="contact-audience">Founders · Engineers · Recruiters</p>
-      </div>
+        <div className="contact-actions">
+          <button
+            type="button"
+            className="button button--primary"
+            aria-expanded={open}
+            aria-controls="cal-panel"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "Hide calendar" : "Book a call"}
+          </button>
+          <a className="button" href={`mailto:${EMAIL}`}>
+            {EMAIL}
+          </a>
+        </div>
 
-      <div className="contact-cal-card">
-        <div className="contact-cal-toolbar">
-          <p className="contact-cal-hint">
-            Pick a time that works ·{" "}
-            <a
-              href={`https://cal.com/${active.calLink}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-cal-open"
-            >
-              Open in Cal.com ↗
-            </a>
-          </p>
-          <div className="contact-duration" role="tablist" aria-label="Call length">
-            {SLOTS.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={slot === item.id}
-                className={`contact-duration-btn${slot === item.id ? " is-active" : ""}`}
-                onClick={() => setSlot(item.id)}
+        {open && (
+          <div id="cal-panel" className="cal">
+            <div className="cal-bar">
+              <div className="segmented" role="group" aria-label="Call length">
+                {SLOTS.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-pressed={slot === item.id}
+                    onClick={() => setSlot(item.id)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <a
+                href={`https://cal.com/${active.calLink}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
               >
-                {item.label}
-              </button>
-            ))}
+                Open in Cal.com
+              </a>
+            </div>
+            <div className="cal-embed">
+              <Cal
+                key={active.calLink}
+                namespace={slot}
+                calLink={active.calLink}
+                style={{ width: "100%", height: "100%", overflow: "auto" }}
+                config={{ layout: "month_view" }}
+              />
+            </div>
           </div>
-        </div>
-
-        <div className="contact-cal-embed">
-          <p className="contact-cal-loading">Loading calendar…</p>
-          <Cal
-            key={active.calLink}
-            namespace={slot}
-            calLink={active.calLink}
-            style={{ width: "100%", height: "100%", overflow: "hidden" }}
-            config={{
-              layout: "month_view",
-              theme: "light",
-            }}
-          />
-        </div>
+        )}
       </div>
-
-      <p className="contact-email">
-        Prefer email? <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-      </p>
     </section>
   );
 }
