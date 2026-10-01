@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import ContactSection from "@/components/ContactSection";
 import LocalTime from "@/components/LocalTime";
+import ThemeToggle from "@/components/ThemeToggle";
 import {
   BLOG_URL,
   EMAIL,
@@ -77,11 +78,14 @@ export default function Home() {
         <a href="#top" className="wordmark">
           Neha Prasad
         </a>
-        <nav aria-label="Sections" className="topnav">
-          <a href="#work">Work</a>
-          <a href="#x">On X</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div className="topbar-end">
+          <nav aria-label="Sections" className="topnav">
+            <a href="#work">Work</a>
+            <a href="#x">On X</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <ThemeToggle />
+        </div>
       </header>
 
       <main id="top">

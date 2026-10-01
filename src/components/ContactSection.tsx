@@ -16,13 +16,29 @@ export default function ContactSection() {
   const [slot, setSlot] = useState<SlotId>("30min");
   const active = SLOTS.find((item) => item.id === slot) ?? SLOTS[1];
 
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const sync = () => {
+      const attr = document.documentElement.getAttribute("data-theme");
+      setTheme(attr === "dark" ? "dark" : "light");
+    };
+    sync();
+    window.addEventListener("themechange", sync);
+    return () => window.removeEventListener("themechange", sync);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     (async () => {
-      const cal = await getCalApi({ namespace: slot });
-      cal("ui", { hideEventTypeDetails: true, layout: "month_view" });
+      const cal = await getCalApi({ namespace: `${slot}-${theme}` });
+      cal("ui", {
+        hideEventTypeDetails: true,
+        layout: "month_view",
+        theme,
+      });
     })();
-  }, [open, slot]);
+  }, [open, slot, theme]);
 
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
@@ -76,11 +92,11 @@ export default function ContactSection() {
             </div>
             <div className="cal-embed">
               <Cal
-                key={active.calLink}
-                namespace={slot}
+                key={`${active.calLink}-${theme}`}
+                namespace={`${slot}-${theme}`}
                 calLink={active.calLink}
                 style={{ width: "100%", height: "100%", overflow: "auto" }}
-                config={{ layout: "month_view" }}
+                config={{ layout: "month_view", theme }}
               />
             </div>
           </div>

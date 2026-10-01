@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const sans = Schibsted_Grotesk({
@@ -34,10 +35,17 @@ export const viewport: Viewport = {
   ],
 };
 
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={sans.variable}>
-      <body>{children}</body>
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
+      <body>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInit}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }
