@@ -4,23 +4,24 @@ export type Project = {
   image: string;
   liveLink: string;
   repoLink: string;
+  videoLink?: string;
   techStack: string[];
 };
 
-export type TocItem = {
-  num: string;
-  label: string;
-  href: string;
+export type Post = {
+  url: string;
+  /** ISO date, YYYY-MM-DD */
+  date: string;
+  text: string;
+  views: string;
+  likes: string;
+  video?: boolean;
 };
-
-export type ContributionTab = "merged" | "open";
 
 export type Contribution = {
   repo: string;
+  number: number;
   title: string;
-  description: string;
-  type: string;
-  date?: string;
   url: string;
 };
 
@@ -31,13 +32,20 @@ export type RecognitionItem = {
   label: string;
 };
 
-export type SectionIcon =
-  | "about"
-  | "openSource"
-  | "recognition"
-  | "experience"
-  | "projects"
-  | "tech"
-  | "chat";
+export type Experience = {
+  role: string;
+  company: string;
+  companyUrl: string;
+  period: string;
+  points: string[];
+};
 
-export type ProjectCardSize = "small" | "medium";
+export type StackGroup = {
+  label: string;
+  items: string[];
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+};

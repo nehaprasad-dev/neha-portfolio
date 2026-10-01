@@ -15,15 +15,13 @@ Deploy your latest build to Vercel (or your host of choice). Example:
 
 ## Features
 
-- **Hero** — intro, portrait, live IST timer, and social links
-- **About** — structured highlights (built projects, open source)
-- **Open Source Contributions** — merged / open PR tabs with contribution list
-- **Recognition** — scrolling gallery of maintainer praise and merged PRs
-- **Experience** — timeline-style work history
-- **Projects** — project cards with live demos, GitHub links, and tech tags
-- **Tech Stack** — skills grouped by experience level
-- **Contact** — Cal.com booking links
-- **Responsive layout** — sticky sidebar + editorial layout on desktop; simplified mobile nav
+- **Hero**: portrait, one-line pitch, availability and links
+- **Selected work**: a featured project plus the rest (compact rows on phones)
+- **Lately on X**: her best-performing posts by reach, linking to each post
+- **Open source**: notable merged PRs (more behind a native disclosure) and maintainer feedback screenshots in a swipeable row
+- **Experience** and **Stack**
+- **Contact**: email, plus a Cal.com calendar that loads only when "Book a call" is tapped
+- **Mobile first**, light and dark themes from the OS setting, no sticky chrome
 
 ## Tech stack
 
@@ -33,7 +31,7 @@ Deploy your latest build to Vercel (or your host of choice). Example:
 | Language | [TypeScript](https://www.typescriptlang.org/) |
 | UI | [React 19](https://react.dev) |
 | Styling | [Tailwind CSS 4](https://tailwindcss.com), custom CSS |
-| Fonts | Inter, Fraunces, JetBrains Mono (Google Fonts) |
+| Fonts | Schibsted Grotesk via `next/font` |
 | Deploy | [Vercel](https://vercel.com) (recommended) |
 
 ## Project structure
@@ -41,19 +39,16 @@ Deploy your latest build to Vercel (or your host of choice). Example:
 ```
 src/
 ├── app/
-│   ├── layout.tsx      # Root layout, metadata, fonts
-│   ├── page.tsx        # Main portfolio page
-│   └── globals.css     # Global styles and section theming
+│   ├── layout.tsx      # Root layout, metadata, font
+│   ├── page.tsx        # The page (server component)
+│   └── globals.css     # Tokens and styles, mobile first
 ├── components/
-│   ├── OpenSourceContributions.tsx
-│   ├── PrRecognitionGallery.tsx
-│   ├── ProjectsSection.tsx
-│   ├── SectionHeading.tsx
-│   ├── StatusIndicator.tsx
-│   ├── Timer.tsx
-│   └── ...
+│   ├── ContactSection.tsx  # Book-a-call + Cal.com embed
+│   └── LocalTime.tsx       # IST clock in the footer
+├── data/
+│   └── portfolio.ts    # All content: projects, X posts, PRs, experience, stack
 └── types/
-    └── portfolio.ts      # Shared TypeScript types (Project, Contribution, etc.)
+    └── portfolio.ts    # Shared types
 ```
 
 ## Getting started
@@ -104,15 +99,12 @@ npm run lint
 
 | What to change | Where |
 |----------------|--------|
-| Projects | `projects` array in `src/app/page.tsx` |
-| Open source PRs | `src/components/OpenSourceContributions.tsx` |
-| Recognition screenshots | `ITEMS` in `src/components/PrRecognitionGallery.tsx` |
-| Experience | Experience section in `src/app/page.tsx` |
-| Tech stack | Tech stack section in `src/app/page.tsx` |
+| Projects, X posts, PRs, recognition, experience, stack, links | `src/data/portfolio.ts` |
+| X posts | `posts` in `src/data/portfolio.ts` (keep ordered by views; refresh the numbers from x.com) |
 | Site metadata | `metadata` in `src/app/layout.tsx` |
-| Colors & layout | `src/app/globals.css` |
+| Colors, type and layout | tokens at the top of `src/app/globals.css` |
 
-Shared types live in `src/types/portfolio.ts` — update these when adding new data shapes.
+Shared types live in `src/types/portfolio.ts`; update these when adding new data shapes.
 
 ## Deploy
 
@@ -120,7 +112,7 @@ Shared types live in `src/types/portfolio.ts` — update these when adding new d
 
 1. Push the repo to GitHub.
 2. Import the project on [Vercel](https://vercel.com/new).
-3. Deploy — no extra config required for a standard Next.js app.
+3. Deploy. No extra config required for a standard Next.js app.
 
 Build command: `npm run build`  
 Output: Next.js default
