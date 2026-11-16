@@ -180,11 +180,11 @@ export const experience: Experience[] = [
     glance: [
       { value: "63K", label: "views on the agent-payments demo" },
       { value: "13K", label: "views on the Vaaya Jobs launch video" },
-      { value: "3", label: "products explained on video: payments, Jobs, Wallet" },
+      { value: "10", label: "product videos made, across payments, Jobs and Wallet" },
     ],
     points: [
       "Made the demo video showing an AI agent paying for a job without a credit card. It reached 63K views on X.",
-      "Introduced Vaaya Jobs and Vaaya Wallet to developers with short demo videos that I wrote, recorded and edited.",
+      "Made 10 product videos in total, including the launches of Vaaya Jobs and Vaaya Wallet. I wrote, recorded and edited each one.",
     ],
   },
   {
