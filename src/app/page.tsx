@@ -82,6 +82,13 @@ function External({
   );
 }
 
+/** Turns **phrase** into bold text. */
+function emphasise(text: string) {
+  return text
+    .split("**")
+    .map((part, i) => (i % 2 ? <strong key={i}>{part}</strong> : part));
+}
+
 function formatDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
     month: "short",
@@ -189,12 +196,12 @@ export default function Home() {
 
         <Section id="about" title="About">
           <div className="about">
-            <div className="card about-card">
+            <div className="about-text">
               {about.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph}>{emphasise(paragraph)}</p>
               ))}
             </div>
-            <dl className="card facts">
+            <dl className="facts">
               {facts.map((fact) => (
                 <div key={fact.title}>
                   <dt>{fact.title}</dt>
@@ -347,8 +354,16 @@ export default function Home() {
           <dl className="rows">
             {stack.map((group) => (
               <div key={group.label}>
-                <dt>{group.label}</dt>
-                <dd>{group.items.join(", ")}</dd>
+                <dt>
+                  {group.label} <span className="count">{group.items.length}</span>
+                </dt>
+                <dd>
+                  <ul className="chips">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </dd>
               </div>
             ))}
           </dl>

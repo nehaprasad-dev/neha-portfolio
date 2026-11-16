@@ -527,35 +527,45 @@ main {
 }
 
 /* ------------------------------------------------------------
-   About
+   About: a large opening line, the story, and facts in the margin
    ------------------------------------------------------------ */
 .about {
   display: grid;
-  gap: 1.25rem;
+  gap: 2.5rem;
 }
 
-.about-card {
+.about-text {
   display: grid;
-  gap: 1.125rem;
-  padding: 1.5rem;
+  gap: 1.25rem;
+  max-width: 42rem;
   font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--muted);
   text-wrap: pretty;
 }
 
+.about-text p:first-child {
+  font-size: var(--step-2);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.about-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
 .facts {
-  display: grid;
-  align-content: start;
-  padding: 0.5rem 1.5rem;
+  align-self: start;
+  border-top: 2px solid var(--ink);
 }
 
 .facts > div {
-  padding-block: 1rem;
-}
-
-.facts > div + div {
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.125rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .facts dt {
@@ -565,7 +575,6 @@ main {
 }
 
 .facts dd {
-  margin-top: 0.25rem;
   font-weight: 500;
 }
 
@@ -1000,25 +1009,41 @@ main {
 }
 
 /* ------------------------------------------------------------
-   Stack, education and awards: plain rows
+   Stack, education and awards: label on the left, detail on the right
    ------------------------------------------------------------ */
-.rows > div {
-  display: grid;
-  gap: 0.25rem;
-  padding-block: 1rem;
-  border-top: 1px solid var(--line);
+.rows {
+  border-top: 2px solid var(--ink);
 }
 
-.rows > div:last-child {
+.rows > div {
+  display: grid;
+  gap: 0.625rem;
+  padding-block: 1.25rem;
   border-bottom: 1px solid var(--line);
 }
 
 .rows dt {
+  font-size: var(--step-1);
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .rows dd {
   color: var(--muted);
+}
+
+.count {
+  margin-left: 0.375rem;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--faint);
+}
+
+.rows .chips li {
+  background: var(--card);
+  color: var(--ink);
 }
 
 /* ------------------------------------------------------------
@@ -1251,13 +1276,15 @@ html[data-theme="dark"] .garden {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .about-card,
   .job {
     padding: 2.25rem;
   }
 
-  .facts {
-    padding: 1rem 2.25rem;
+  .rows > div {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: baseline;
+    padding-block: 1.5rem;
   }
 
   .prs-card {
@@ -1320,7 +1347,13 @@ html[data-theme="dark"] .garden {
   }
 
   .about {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 19rem);
+    column-gap: 5rem;
+  }
+
+  .facts {
+    position: sticky;
+    top: 6rem;
   }
 
   /* Dates in a left rail, joined by a line with a dot per role. */

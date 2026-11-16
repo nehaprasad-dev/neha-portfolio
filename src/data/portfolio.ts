@@ -23,11 +23,12 @@ export const stats: Stat[] = [
   { value: "68K", label: "views on one demo video" },
 ];
 
+/** Wrap a phrase in **double asterisks** to emphasise it. */
 export const about: string[] = [
   "I'm Neha, a full-stack engineer in Mumbai. I mostly write TypeScript and Python, and most of what I build has an LLM somewhere in it.",
-  "A lot of my work is in open source. I've had 150+ pull requests merged into projects like Next.js, Mastra, LiteLLM, OpenHands and PostHog. One of them fixed a bug in Mastra where agents froze silently during Anthropic tool calls. Another added multi-turn image generation to LlamaIndexTS.",
-  "At nFront Ventures I built features for nFront Academy, a platform that 10+ VC funds and 2,000+ people use. At Warestack I helped 15+ GitHub organisations start using Watchflow, and reviewed the pull requests the community sent in.",
-  "I also record short videos about tools I try and things I build, and post them on X. The most watched one got 68K views. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
+  "A lot of my work is in open source. I've had **150+ pull requests merged** into projects like Next.js, Mastra, LiteLLM, OpenHands and PostHog. One of them fixed a bug in Mastra where agents froze silently during Anthropic tool calls. Another added multi-turn image generation to LlamaIndexTS.",
+  "At nFront Ventures I built features for nFront Academy, a platform that **10+ VC funds and 2,000+ people** use. At Warestack I helped **15+ GitHub organisations** start using Watchflow, and reviewed the pull requests the community sent in.",
+  "I also record short videos about tools I try and things I build, and post them on X. The most watched one got **68K views**. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
 ];
 
 export const facts: Highlight[] = [
@@ -218,7 +219,7 @@ export const experience: Experience[] = [
 ];
 
 export const highlights: Highlight[] = [
-  { title: "B.Sc. Computer Science", text: "University of the People, 2025." },
+  { title: "B.Sc. Computer Science", text: "University of the People, California, 2025." },
   { title: "2 hackathon wins", text: "Including LabLab.ai 2024. MVPs delivered in 24 to 48 hours." },
   { title: "Oracle Cloud certified", text: "OCI 2025 AI Foundations Associate." },
   { title: "Mentored 20+ developers", text: "On their open-source contributions." },
