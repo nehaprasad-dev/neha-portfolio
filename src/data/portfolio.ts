@@ -28,7 +28,7 @@ export const about: string[] = [
   "I'm Neha, a full-stack engineer in Mumbai. I mostly write TypeScript and Python, and most of what I build has an LLM somewhere in it.",
   "A lot of my work is in open source. I've had **150+ pull requests merged** into projects like Next.js, Mastra, LiteLLM, OpenHands and PostHog. One of them fixed a bug in Mastra where agents froze silently during Anthropic tool calls. Another added multi-turn image generation to LlamaIndexTS.",
   "At nFront Ventures I built features for nFront Academy, a platform that **10+ VC funds and 2,000+ people** use. At Warestack I helped **15+ GitHub organisations** start using Watchflow, and reviewed the pull requests the community sent in.",
-  "I also record short videos about tools I try and things I build, and post them on X. The most watched one got **68K views**. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
+  "Right now I do developer relations at Vaaya, a wallet for AI agents. I record short videos about tools I try and things I build, and post them on X. The most watched one got **68K views**. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
 ];
 
 export const facts: Highlight[] = [
@@ -112,9 +112,9 @@ export const posts: Post[] = [
   {
     url: `https://x.com/${X_HANDLE}/status/2103035505587958045`,
     date: "2026-09-24",
-    text: "I gave an AI agent a job that required money. I didn't give it my credit card. So how did it pay? 👀",
-    views: "62K",
-    likes: "274",
+    text: "I gave an AI agent a job that required money! I didn't give it my credit card. So how did it pay? 👀",
+    views: "63K",
+    likes: "270",
     video: true,
   },
   {
@@ -170,6 +170,23 @@ export const recognition: RecognitionItem[] = [
 ];
 
 export const experience: Experience[] = [
+  {
+    role: "Developer Relations",
+    company: "Vaaya",
+    companyUrl: "https://vaaya.ai/",
+    period: "Jul 2026 – Present",
+    about: "Vaaya is a prepaid wallet that lets AI agents pay for the tools they use, with spending limits you control.",
+    focus: "Developer content, product demos, launches",
+    glance: [
+      { value: "63K", label: "views on the agent-payments demo" },
+      { value: "13K", label: "views on the Vaaya Jobs launch video" },
+      { value: "3", label: "products explained on video: payments, Jobs, Wallet" },
+    ],
+    points: [
+      "Made the demo video showing an AI agent paying for a job without a credit card. It reached 63K views on X.",
+      "Introduced Vaaya Jobs and Vaaya Wallet to developers with short demo videos that I wrote, recorded and edited.",
+    ],
+  },
   {
     role: "Open Source Community Growth",
     company: "Warestack",
