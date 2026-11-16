@@ -16,8 +16,7 @@ export const X_HANDLE = "nehaaaa_6";
 export const X_FOLLOWERS = "1.7K";
 export const BLOG_URL = "https://nehacodes.hashnode.dev/";
 export const RESUME_URL =
-  "https://drive.google.com/file/d/1Rak8RH484u0fzxq2yG4pVK6VjL1Hckga/view?usp=drivesdk";
-
+  "https://drive.google.com/file/d/15_stuFTFvIxXO0RRTXwmhH3Akga_15Ip/view?usp=drivesdk";
 export const stats: Stat[] = [
   { value: "150+", label: "merged open-source PRs" },
   { value: "19", label: "major repos contributed to" },
@@ -44,10 +43,22 @@ export const services: Service[] = [
   },
 ];
 
+/** Opening line of the About card; the second part is set in the accent face. */
+export const aboutLead: [string, string] = [
+  "Hi, I'm Neha. I like building things developers use, and then ",
+  "making sure developers hear about them.",
+];
+
 export const about: string[] = [
-  "Hi, I'm Neha. I like building things developers use, and then making sure developers hear about them.",
   "I've merged 150+ pull requests into open-source projects, including Next.js, Mastra, LiteLLM, OpenHands and PostHog. At nFront Ventures I shipped production features for a platform used by 10+ VC funds and 2,000+ users. At Warestack I helped 15+ GitHub organisations adopt an agentic governance tool.",
   "I also make short videos about products and tools on X, and the best one reached 68K views. I've won two hackathons and mentored 20+ developers in open-source contributions.",
+];
+
+export const facts: Highlight[] = [
+  { title: "Based in", text: "Mumbai, India" },
+  { title: "Looking for", text: "Software Engineer or DevRel, full-time" },
+  { title: "Open to", text: "Remote, or on-site in Mumbai" },
+  { title: "Works with", text: "TypeScript, React, Node, Python" },
 ];
 
 export const socials: SocialLink[] = [

@@ -2,17 +2,18 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 import ContactSection from "@/components/ContactSection";
-import LocalTime from "@/components/LocalTime";
+import GardenFooter from "@/components/GardenFooter";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
-  BLOG_URL,
   EMAIL,
   RESUME_URL,
   X_FOLLOWERS,
   X_HANDLE,
   about,
+  aboutLead,
   contributions,
   experience,
+  facts,
   highlights,
   posts,
   projects,
@@ -25,26 +26,70 @@ import {
 
 const VISIBLE_PRS = 6;
 
+const serviceIcons: ReactNode[] = [
+  <path key="code" d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />,
+  <path
+    key="ai"
+    d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"
+  />,
+  <g key="oss">
+    <circle cx="6" cy="6" r="2.5" />
+    <circle cx="6" cy="18" r="2.5" />
+    <circle cx="18" cy="12" r="2.5" />
+    <path d="M6 8.5v7M8.5 6c4 0 3 6 7 6" />
+  </g>,
+  <g key="video">
+    <rect x="3" y="5" width="18" height="14" rx="3" />
+    <path d="m10 9 5 3-5 3V9Z" />
+  </g>,
+];
+
+const repos = [...new Set(contributions.map((pr) => pr.repo))];
+const index = (i: number) => String(i + 1).padStart(2, "0");
+const reach = (views: string) => parseFloat(views);
+const topReach = Math.max(...posts.map((post) => reach(post.views)));
+
+function MergedIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z" />
+    </svg>
+  );
+}
+
 function Section({
   id,
+  eyebrow,
   title,
+  accent,
   aside,
+  tint,
   children,
 }: {
   id: string;
+  eyebrow: string;
   title: string;
+  accent?: string;
   aside?: ReactNode;
+  tint?: boolean;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="section" aria-labelledby={`${id}-title`}>
+    <section
+      id={id}
+      className={tint ? "section section--tint" : "section"}
+      aria-labelledby={`${id}-title`}
+    >
       <header className="section-head">
-        <h2 id={`${id}-title`} className="section-title">
-          {title}
-        </h2>
+        <div>
+          <p className="eyebrow">{eyebrow}</p>
+          <h2 id={`${id}-title`} className="section-title">
+            {title} {accent && <em>{accent}</em>}
+          </h2>
+        </div>
         {aside}
       </header>
-      <div className="section-body">{children}</div>
+      {children}
     </section>
   );
 }
@@ -81,45 +126,44 @@ export default function Home() {
   return (
     <>
       <header className="topbar">
-        <a href="#top" className="wordmark">
-          Neha Prasad
-        </a>
-        <div className="topbar-end">
+        <div className="topbar-inner">
+          <a href="#top" className="brand">
+            <span className="brand-mark" aria-hidden="true">
+              N
+            </span>
+            <span className="brand-name">Neha Prasad</span>
+          </a>
           <nav aria-label="Sections" className="topnav">
+            <a href="#about">About</a>
             <a href="#experience">Experience</a>
+            <a href="#open-source">Open source</a>
             <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
+            <a href="#x">On X</a>
           </nav>
-          <ThemeToggle />
+          <div className="topbar-end">
+            <ThemeToggle />
+            <a href="#contact" className="button button--primary">
+              Contact
+            </a>
+          </div>
         </div>
       </header>
 
       <main id="top">
         <section className="hero">
-          <div className="hero-portrait">
-            <Image
-              src="/portner.png"
-              alt="Neha Prasad, smiling, in a cap on a wooden bridge"
-              width={360}
-              height={360}
-              priority
-              sizes="(min-width: 900px) 132px, 88px"
-            />
-          </div>
           <div className="hero-copy">
+            <p className="eyebrow">neha prasad · full-stack engineer · mumbai</p>
             <h1 className="hero-title">
-              I ship AI products, and get developers to use them.
+              I ship AI products, and <em>get developers to use them.</em>
             </h1>
             <p className="hero-lead">
-              Full-stack engineer in Mumbai. 150+ merged pull requests to
-              Next.js, Mastra, LiteLLM, OpenHands and LlamaIndex. I build with
-              TypeScript, React, Node and Python, and I make the demos that get
-              products seen.
+              150+ merged pull requests to Next.js, Mastra, LiteLLM and
+              OpenHands. I build with TypeScript, React, Node and Python, and I
+              make the demos that get products seen.
             </p>
             <p className="hero-status">
               <span className="dot" aria-hidden="true" />
-              Looking for a full-time Software Engineer or DevRel role · Mumbai
-              or remote
+              Looking for a full-time Software Engineer or DevRel role
             </p>
             <div className="hero-actions">
               <External href={RESUME_URL} className="button button--primary">
@@ -129,14 +173,6 @@ export default function Home() {
                 Email me
               </a>
             </div>
-            <ul className="stats" aria-label="Highlights">
-              {stats.map((s) => (
-                <li key={s.label}>
-                  <strong>{s.value}</strong>
-                  <span>{s.label}</span>
-                </li>
-              ))}
-            </ul>
             <ul className="hero-links">
               {socials.map((s) => (
                 <li key={s.label}>
@@ -145,12 +181,67 @@ export default function Home() {
               ))}
             </ul>
           </div>
+          <div className="hero-visual">
+            <div className="hero-portrait">
+              <Image
+                src="/portner.png"
+                alt="Neha Prasad, smiling, in a cap on a wooden bridge"
+                width={840}
+                height={1050}
+                priority
+                sizes="(min-width: 900px) 400px, 96px"
+              />
+            </div>
+            <p className="float float--a" aria-hidden="true">
+              <MergedIcon className="merged" />
+              <strong>150+</strong> PRs merged
+            </p>
+            <p className="float float--b" aria-hidden="true">
+              <strong>68K</strong> views on one demo
+            </p>
+          </div>
         </section>
 
-        <Section id="what-i-do" title="What I do">
-          <ul className="cards">
-            {services.map((item) => (
-              <li key={item.title}>
+        <div className="marquee" aria-hidden="true">
+          <ul>
+            {[...repos, ...repos].map((repo, i) => (
+              <li key={i}>
+                <MergedIcon className="merged" />
+                {repo}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <ul className="stats stats--band" aria-label="Highlights">
+          {stats.map((s) => (
+            <li key={s.label}>
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </li>
+          ))}
+        </ul>
+
+        <Section id="what-i-do" eyebrow="what i do" title="Four things," accent="done well">
+          <ul className="services">
+            {services.map((item, i) => (
+              <li key={item.title} className="card">
+                <div className="service-top">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {serviceIcons[i]}
+                  </svg>
+                  <span className="num">{index(i)}</span>
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </li>
@@ -158,60 +249,66 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section id="about" title="About">
+        <Section id="about" eyebrow="about" title="A bit" accent="about me">
           <div className="about">
-            {about.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            <div className="card about-card">
+              <p className="about-lead">
+                {aboutLead[0]}
+                <em>{aboutLead[1]}</em>
+              </p>
+              {about.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <dl className="card facts">
+              {facts.map((fact) => (
+                <div key={fact.title}>
+                  <dt>{fact.title}</dt>
+                  <dd>{fact.text}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Section>
 
-        <Section id="experience" title="Experience">
-          <ol className="jobs">
+        <Section id="experience" eyebrow="experience" title="Where I've" accent="worked" tint>
+          <ol className="timeline">
             {experience.map((job) => (
-              <li key={job.company} className="job">
-                <div className="job-head">
-                  <h3>
-                    <External href={job.companyUrl}>{job.company}</External>
-                  </h3>
-                  <span className="job-period">{job.period}</span>
-                </div>
-                <p className="job-about">{job.about}</p>
-
-                <dl className="job-meta">
-                  <div>
-                    <dt>Role</dt>
-                    <dd>{job.role}</dd>
-                  </div>
-                  {job.location && (
-                    <div>
-                      <dt>Location</dt>
-                      <dd>{job.location}</dd>
-                    </div>
-                  )}
-                  <div>
-                    <dt>Focus</dt>
-                    <dd>{job.focus}</dd>
-                  </div>
-                </dl>
-
-                {job.glance && (
-                  <ul className="stats stats--job" aria-label="At a glance">
-                    {job.glance.map((s) => (
-                      <li key={s.label}>
-                        <strong>{s.value}</strong>
-                        <span>{s.label}</span>
-                      </li>
+              <li key={job.company} className="tl-item">
+                <p className="tl-when">{job.period}</p>
+                <article className="card job">
+                  <header className="job-head">
+                    <h3 className="job-company">
+                      <External href={job.companyUrl}>{job.company}</External>
+                    </h3>
+                    <p className="job-role">{job.role}</p>
+                  </header>
+                  <p className="job-about">{job.about}</p>
+                  <ul className="chips chips--small">
+                    {job.location && <li>{job.location}</li>}
+                    {job.focus.split(", ").map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
-                )}
 
-                <h4 className="job-owned">What I owned</h4>
-                <ul className="job-points">
-                  {job.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                  {job.glance && (
+                    <ul className="stats stats--job" aria-label="At a glance">
+                      {job.glance.map((s) => (
+                        <li key={s.label}>
+                          <strong>{s.value}</strong>
+                          <span>{s.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <p className="label">What I owned</p>
+                  <ul className="job-points">
+                    {job.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
               </li>
             ))}
           </ol>
@@ -219,31 +316,36 @@ export default function Home() {
 
         <Section
           id="open-source"
-          title="Open source"
+          eyebrow="open source"
+          title="Code in tools"
+          accent="you already use"
           aside={
-            <External href="https://github.com/nehaaprasad" className="section-aside">
-              150+ merged PRs
+            <External href="https://github.com/nehaaprasad" className="pill pill--link">
+              150+ merged PRs on GitHub
             </External>
           }
         >
-          <ul className="prs">
-            {contributions.slice(0, VISIBLE_PRS).map((pr) => (
-              <PrRow key={pr.url} {...pr} />
-            ))}
-          </ul>
-          <details className="more">
-            <summary>
-              {contributions.length - VISIBLE_PRS} more pull requests
-            </summary>
+          <div className="card prs-card">
             <ul className="prs">
-              {contributions.slice(VISIBLE_PRS).map((pr) => (
+              {contributions.slice(0, VISIBLE_PRS).map((pr) => (
                 <PrRow key={pr.url} {...pr} />
               ))}
             </ul>
-          </details>
-        </Section>
+            <details className="more">
+              <summary>
+                {contributions.length - VISIBLE_PRS} more pull requests
+              </summary>
+              <ul className="prs">
+                {contributions.slice(VISIBLE_PRS).map((pr) => (
+                  <PrRow key={pr.url} {...pr} />
+                ))}
+              </ul>
+            </details>
+          </div>
 
-        <Section id="feedback" title="What maintainers said">
+          <h3 className="subhead">
+            What maintainers <em>said</em>
+          </h3>
           <ul className="shots" aria-label="Maintainer feedback, scrolls sideways">
             {recognition.map((item) => (
               <li key={item.label}>
@@ -253,7 +355,7 @@ export default function Home() {
                     alt={item.alt}
                     width={520}
                     height={320}
-                    sizes="280px"
+                    sizes="340px"
                   />
                   <span>{item.label}</span>
                 </External>
@@ -262,33 +364,19 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section id="work" title="Selected work">
-          {caseStudies.map((project) => (
-            <article className="project project--featured" key={project.title}>
-              <External href={project.liveLink} className="project-shot">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} screenshot`}
-                  width={1200}
-                  height={750}
-                  sizes="(min-width: 900px) 640px, 100vw"
-                />
-              </External>
-              <ProjectText project={project} />
-            </article>
-          ))}
+        <Section id="work" eyebrow="selected work" title="Things I" accent="built" tint>
+          <div className="cases">
+            {caseStudies.map((project) => (
+              <article className="card case" key={project.title}>
+                <Browser project={project} sizes="(min-width: 900px) 540px, 100vw" />
+                <ProjectText project={project} />
+              </article>
+            ))}
+          </div>
           <div className="project-grid">
             {rest.map((project) => (
-              <article className="project" key={project.title}>
-                <External href={project.liveLink} className="project-shot">
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} screenshot`}
-                    width={720}
-                    height={450}
-                    sizes="(min-width: 640px) 320px, 100vw"
-                  />
-                </External>
+              <article className="card project" key={project.title}>
+                <Browser project={project} sizes="(min-width: 640px) 520px, 100vw" />
                 <ProjectText project={project} />
               </article>
             ))}
@@ -297,9 +385,11 @@ export default function Home() {
 
         <Section
           id="x"
-          title="On X"
+          eyebrow="developer content"
+          title="Demos people"
+          accent="actually watch"
           aside={
-            <External href={`https://x.com/${X_HANDLE}`} className="section-aside">
+            <External href={`https://x.com/${X_HANDLE}`} className="pill pill--link">
               @{X_HANDLE} · {X_FOLLOWERS} followers
             </External>
           }
@@ -307,10 +397,15 @@ export default function Home() {
           <ol className="posts">
             {posts.map((post) => (
               <li key={post.url}>
-                <External href={post.url} className="post">
+                <External href={post.url} className="card post">
+                  <p className="post-views">
+                    <strong>{post.views}</strong> views
+                  </p>
+                  <span className="reach">
+                    <span style={{ width: `${(reach(post.views) / topReach) * 100}%` }} />
+                  </span>
                   <p className="post-text">{post.text}</p>
                   <p className="post-meta">
-                    <span className="post-views">{post.views} views</span>
                     <span>{post.likes} likes</span>
                     {post.video && <span>Video</span>}
                     <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -319,26 +414,28 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <External href={`https://x.com/${X_HANDLE}`} className="text-link">
-            Follow along on X
-          </External>
         </Section>
 
-        <Section id="stack" title="Stack">
-          <dl className="stack">
+        <Section id="stack" eyebrow="stack" title="What I" accent="work with">
+          <ul className="stack-grid">
             {stack.map((group) => (
-              <div key={group.label}>
-                <dt>{group.label}</dt>
-                <dd>{group.items.join(", ")}</dd>
-              </div>
+              <li key={group.label} className="card">
+                <h3>{group.label}</h3>
+                <ul className="chips">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </li>
             ))}
-          </dl>
+          </ul>
         </Section>
 
-        <Section id="highlights" title="Education and awards">
-          <ul className="cards">
-            {highlights.map((item) => (
-              <li key={item.title}>
+        <Section id="highlights" eyebrow="education and awards" title="Along" accent="the way" tint>
+          <ul className="highlights">
+            {highlights.map((item, i) => (
+              <li key={item.title} className="card">
+                <span className="num">{index(i)}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </li>
@@ -349,19 +446,28 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      <footer className="footer">
-        <p>
-          <LocalTime />
-        </p>
-        <p>
-          <External href={BLOG_URL}>Blog</External>
-          <span aria-hidden="true"> · </span>
-          <External href="https://github.com/nehaprasad-dev/neha-portfolio">
-            Source
-          </External>
-        </p>
-      </footer>
+      <GardenFooter />
     </>
+  );
+}
+
+function Browser({ project, sizes }: { project: (typeof projects)[number]; sizes: string }) {
+  return (
+    <External href={project.liveLink} className="browser">
+      <span className="browser-bar">
+        <i />
+        <i />
+        <i />
+        <span className="browser-url">{new URL(project.liveLink).host}</span>
+      </span>
+      <Image
+        src={project.image}
+        alt={`${project.title} screenshot`}
+        width={1200}
+        height={750}
+        sizes={sizes}
+      />
+    </External>
   );
 }
 
@@ -373,7 +479,7 @@ function ProjectText({ project }: { project: (typeof projects)[number] }) {
       </h3>
       <p>{project.description}</p>
       {project.problem && project.built && (
-        <dl className="stack project-case">
+        <dl className="project-case">
           <div>
             <dt>Problem</dt>
             <dd>{project.problem}</dd>
@@ -384,7 +490,11 @@ function ProjectText({ project }: { project: (typeof projects)[number] }) {
           </div>
         </dl>
       )}
-      <p className="project-meta">{project.techStack.join(" · ")}</p>
+      <ul className="chips chips--small">
+        {project.techStack.map((tech) => (
+          <li key={tech}>{tech}</li>
+        ))}
+      </ul>
       <p className="project-links">
         <External href={project.liveLink}>Live</External>
         <External href={project.repoLink}>Code</External>
@@ -398,13 +508,15 @@ function PrRow({ repo, number, title, url, note }: (typeof contributions)[number
   return (
     <li>
       <External href={url} className="pr">
-        <span className="pr-repo">
-          {repo} <span className="pr-num">#{number}</span>
-        </span>
+        <MergedIcon className="merged" />
         <span className="pr-main">
           <span className="pr-title">{title}</span>
           {note && <span className="pr-note">{note}</span>}
+          <span className="pr-repo">
+            {repo} <span className="pr-num">#{number}</span>
+          </span>
         </span>
+        <span className="pr-badge">Merged</span>
       </External>
     </li>
   );
