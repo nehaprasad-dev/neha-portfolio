@@ -6,10 +6,7 @@ type Theme = "light" | "dark";
 
 function readTheme(): Theme {
   const attr = document.documentElement.getAttribute("data-theme");
-  if (attr === "light" || attr === "dark") return attr;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return attr === "dark" ? "dark" : "light";
 }
 
 export function applyTheme(theme: Theme) {

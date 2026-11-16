@@ -43,13 +43,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf8f6" },
-    { media: "(prefers-color-scheme: dark)", color: "#161213" },
-  ],
+  themeColor: "#fbf8f6",
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"){t="light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

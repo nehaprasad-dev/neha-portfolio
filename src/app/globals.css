@@ -56,24 +56,6 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) {
-    --paper: oklch(0.17 0.008 20);
-    --paper-2: oklch(0.22 0.01 20);
-    --card: oklch(0.205 0.009 20);
-    --tint: oklch(0.195 0.012 50);
-    --ink: oklch(0.94 0.006 25);
-    --muted: oklch(0.74 0.01 25);
-    --faint: oklch(0.6 0.01 25);
-    --line: oklch(0.3 0.01 20);
-    --accent: oklch(0.78 0.11 15);
-    --on-accent: oklch(0.17 0.008 20);
-    --merged: oklch(0.72 0.16 295);
-    --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 18px 44px -20px oklch(0 0 0 / 0.7);
-    color-scheme: dark;
-  }
-}
-
 /* ------------------------------------------------------------
    Base
    ------------------------------------------------------------ */
@@ -1199,12 +1181,6 @@ main {
 
 html[data-theme="dark"] .garden {
   filter: brightness(0.78) saturate(0.9);
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .garden {
-    filter: brightness(0.78) saturate(0.9);
-  }
 }
 
 /* ------------------------------------------------------------
