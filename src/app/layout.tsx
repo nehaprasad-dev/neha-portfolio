@@ -11,7 +11,7 @@ const sans = Schibsted_Grotesk({
 });
 
 const description =
-  "Full-stack engineer building AI agents and production web apps. 150+ merged open-source PRs across Next.js, Mastra, LlamaIndex, LiteLLM and OpenHands.";
+  "Full-stack engineer who ships AI products and gets developers to use them. 150+ merged PRs to Next.js, Mastra, LiteLLM, OpenHands and LlamaIndex. Open to Software Engineer and DevRel roles.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://neha-portfoliooo.vercel.app"),

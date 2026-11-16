@@ -1,46 +1,86 @@
 import type {
   Contribution,
   Experience,
+  Highlight,
   Post,
   Project,
   RecognitionItem,
+  Service,
   SocialLink,
   StackGroup,
+  Stat,
 } from "@/types/portfolio";
 
 export const EMAIL = "nehaprasad27118@gmail.com";
 export const X_HANDLE = "nehaaaa_6";
-export const X_FOLLOWERS = "1.5K";
+export const X_FOLLOWERS = "1.7K";
 export const BLOG_URL = "https://nehacodes.hashnode.dev/";
 export const RESUME_URL =
   "https://drive.google.com/file/d/1Rak8RH484u0fzxq2yG4pVK6VjL1Hckga/view?usp=drivesdk";
 
+export const stats: Stat[] = [
+  { value: "150+", label: "merged open-source PRs" },
+  { value: "19", label: "major repos contributed to" },
+  { value: "2,000+", label: "users on work I shipped" },
+  { value: "68K", label: "views on one demo video" },
+];
+
+export const services: Service[] = [
+  {
+    title: "Full-stack engineering",
+    text: "Production web apps with TypeScript, React, Next.js, Node and Python.",
+  },
+  {
+    title: "AI agents and LLM products",
+    text: "Multi-agent systems, tool calling and RAG, from prototype to shipped.",
+  },
+  {
+    title: "Open source",
+    text: "150+ merged pull requests across 19 projects, including Next.js, Mastra and LiteLLM.",
+  },
+  {
+    title: "Developer content",
+    text: "Short demos and videos that get products seen. The best one reached 68K views.",
+  },
+];
+
+export const about: string[] = [
+  "Hi, I'm Neha. I like building things developers use, and then making sure developers hear about them.",
+  "I've merged 150+ pull requests into open-source projects, including Next.js, Mastra, LiteLLM, OpenHands and PostHog. At nFront Ventures I shipped production features for a platform used by 10+ VC funds and 2,000+ users. At Warestack I helped 15+ GitHub organisations adopt an agentic governance tool.",
+  "I also make short videos about products and tools on X, and the best one reached 68K views. I've won two hackathons and mentored 20+ developers in open-source contributions.",
+];
+
 export const socials: SocialLink[] = [
-  { label: "X", href: `https://x.com/${X_HANDLE}` },
   { label: "GitHub", href: "https://github.com/nehaaprasad" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/neha-prasad-92499821b/" },
-  { label: "Resume", href: RESUME_URL },
+  { label: "X", href: `https://x.com/${X_HANDLE}` },
   { label: "Instagram", href: "https://www.instagram.com/nehabytess/" },
 ];
 
 export const projects: Project[] = [
   {
     title: "CompliScore",
-    description:
-      "A free 60-second health check for Indian startups. Type your company name, get a score out of 100, see what's overdue and what to fix. No login, no jargon.",
+    description: "A free 60-second compliance health check for Indian startups.",
+    problem:
+      "Early-stage founders in India often don't know whether their GST, MCA or TDS filings are overdue until a notice arrives.",
+    built:
+      "Type a company name and get a compliance score out of 100, the overdue filings, a rough penalty estimate and a plain-English action plan written by an LLM. No login, no documents.",
     image: "/compl.png",
     liveLink: "https://compliscore-nu.vercel.app/",
     repoLink: "https://github.com/nehaprasad-dev/compliscore",
-    techStack: ["Next.js", "MongoDB", "Node.js", "Sentry"],
+    techStack: ["Next.js", "TypeScript", "Groq (Llama 3.3)"],
   },
   {
     title: "CodeTrust",
-    description:
-      "Reviews code and pull requests with a Safe, Risky or Block verdict, so issues get caught before they ship.",
+    description: "Reviews code and pull requests and gives a Safe, Risky or Block verdict.",
+    problem:
+      "Bugs and security issues reach production when changes are merged without a careful review.",
+    built:
+      "Paste code or a GitHub PR link. It runs deterministic checks, adds an optional LLM review pass, and combines both into a weighted score with a clear verdict. Long analyses run on a Redis queue.",
     image: "/codetr.png",
     liveLink: "https://codetrust-lilac.vercel.app",
     repoLink: "https://github.com/nehaaprasad/codetrust",
-    techStack: ["Next.js", "Python", "PostgreSQL", "Redis"],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Redis"],
   },
   {
     title: "CareTalk",
@@ -49,16 +89,15 @@ export const projects: Project[] = [
     image: "/care.png",
     liveLink: "https://caretalk-agent.vercel.app/",
     repoLink: "https://github.com/nehaaprasad/caretalk-agent",
-    techStack: ["Next.js", "MongoDB", "Node.js", "Sentry"],
+    techStack: ["Next.js", "TypeScript", "Groq", "MongoDB"],
   },
   {
     title: "Heariffy",
     description:
-      "Real-time audio classification: a PyTorch CNN behind a FastAPI backend, with a React front end.",
+      "Audio classification: a PyTorch CNN served through FastAPI, with a Next.js dashboard to test it.",
     image: "/aud.png",
     liveLink: "https://heariffy-byu8.vercel.app/",
     repoLink: "https://github.com/nehaaprasad/heariffy",
-    videoLink: "https://drive.google.com/file/d/1R4gZ1vKUudm5vOJcM3bDc1S_SnvH10k7/view",
     techStack: ["Next.js", "Python", "PyTorch", "FastAPI"],
   },
   {
@@ -67,7 +106,6 @@ export const projects: Project[] = [
     image: "/eon.png",
     liveLink: "https://eonlogic-mk8l.vercel.app/",
     repoLink: "https://github.com/nehaaprasad/eonlogic",
-    videoLink: "https://drive.google.com/file/d/1R7eAZUVClgFQsG_9JoDlVecanAU14S9c/view",
     techStack: ["Next.js", "Express", "PostgreSQL"],
   },
   {
@@ -76,7 +114,6 @@ export const projects: Project[] = [
     image: "/lms.png",
     liveLink: "https://lms-app-navy.vercel.app/",
     repoLink: "https://github.com/nehaaprasad/lms-app",
-    videoLink: "https://drive.google.com/file/d/1R8pR242fn-edmDCJt7Jb3eboMBP5j-0R/view",
     techStack: ["Next.js", "Supabase", "Vapi", "Zod"],
   },
 ];
@@ -93,13 +130,6 @@ export const posts: Post[] = [
     video: true,
   },
   {
-    url: `https://x.com/${X_HANDLE}/status/2044769458162639151`,
-    date: "2026-04-16",
-    text: "Got to interview with xAI as a software engineer! Didn't make it through, but learned a lot, especially how important clear thinking and architecture are. Still feels crazy that building projects and open source got me there.",
-    views: "35K",
-    likes: "458",
-  },
-  {
     url: `https://x.com/${X_HANDLE}/status/2104869253551731046`,
     date: "2026-09-29",
     text: "Someone built this and I had to try it. You paste in a URL, and the entire webpage turns into a game you can destroy.",
@@ -111,22 +141,22 @@ export const posts: Post[] = [
     url: `https://x.com/${X_HANDLE}/status/2101978837697396837`,
     date: "2026-09-21",
     text: "Someone's dead in Room 12. Seven people are lying. The train leaves in 45 minutes. You can ask anyone anything; the hard part is asking the right question.",
-    views: "18K",
-    likes: "170",
+    views: "18.7K",
+    likes: "169",
     video: true,
   },
 ];
 
 export const contributions: Contribution[] = [
   { repo: "vercel/next.js", number: 88653, title: "Make RedirectType constant properties literal types", url: "https://github.com/vercel/next.js/pull/88653" },
-  { repo: "mastra-ai/mastra", number: 12400, title: "Support Anthropic programmatic tool calling", url: "https://github.com/mastra-ai/mastra/pull/12400" },
+  { repo: "mastra-ai/mastra", number: 12400, title: "Support Anthropic programmatic tool calling", url: "https://github.com/mastra-ai/mastra/pull/12400", note: "Fixed a silent agent freeze by synthesising tool-call chunks from streaming deltas." },
+  { repo: "run-llama/LlamaIndexTS", number: 2106, title: "Multi-turn image generation support", url: "https://github.com/run-llama/LlamaIndexTS/pull/2106", note: "With persistent image-id memory across turns." },
+  { repo: "PostHog/posthog", number: 34946, title: "Group property filtering for survey responses", url: "https://github.com/PostHog/posthog/pull/34946", note: "Improved survey segmentation for 10,000+ users." },
   { repo: "BerriAI/litellm", number: 19265, title: "Keep guardrail patterns on edit and mode toggle", url: "https://github.com/BerriAI/litellm/pull/19265" },
   { repo: "OpenHands/OpenHands", number: 12702, title: "Fix selected repo disappearing from the repository dropdown", url: "https://github.com/OpenHands/OpenHands/pull/12702" },
-  { repo: "run-llama/LlamaIndexTS", number: 2106, title: "Multi-turn image generation support", url: "https://github.com/run-llama/LlamaIndexTS/pull/2106" },
   { repo: "shadcn-ui/ui", number: 8878, title: "Add the @ui-layouts registry to the directory", url: "https://github.com/shadcn-ui/ui/pull/8878" },
   { repo: "deepset-ai/haystack-core-integrations", number: 3016, title: "Add run_async to AstraEmbeddingRetriever", url: "https://github.com/deepset-ai/haystack-core-integrations/pull/3016" },
   { repo: "calcom/cal.com", number: 23784, title: "Fix dynamic adapter imports in self-hosted instances", url: "https://github.com/calcom/cal.com/pull/23784" },
-  { repo: "PostHog/posthog", number: 34946, title: "Group property filtering for survey responses", url: "https://github.com/PostHog/posthog/pull/34946" },
   { repo: "tldraw/tldraw", number: 6987, title: "Custom relative snap points for handles", url: "https://github.com/tldraw/tldraw/pull/6987" },
   { repo: "PrefectHQ/prefect", number: 19548, title: "Speed up the task_runs count endpoint", url: "https://github.com/PrefectHQ/prefect/pull/19548" },
   { repo: "payloadcms/payload", number: 15454, title: "Ungenerated image sizes no longer store the original URL", url: "https://github.com/payloadcms/payload/pull/15454" },
@@ -153,20 +183,21 @@ export const recognition: RecognitionItem[] = [
 
 export const experience: Experience[] = [
   {
-    role: "Summer Founder Fellow",
-    company: "16VC",
-    companyUrl: "https://16vc.com/",
-    period: "Jun – Sep 2026",
-    points: ["Summer Founder Fellowship 2026, San Francisco Bay Area (remote)."],
-  },
-  {
     role: "Open Source Community Growth",
     company: "Warestack",
     companyUrl: "https://www.warestack.com/",
     period: "Dec 2025 – May 2026",
+    about: "Warestack builds Watchflow, an agentic governance tool for GitHub.",
+    location: "Remote",
+    focus: "Developer adoption, community, code review",
+    glance: [
+      { value: "15+", label: "GitHub organisations onboarded" },
+      { value: "30+", label: "pull requests reviewed" },
+      { value: "~25%", label: "faster average review time" },
+    ],
     points: [
-      "Onboarded 15+ GitHub organisations onto Watchflow.",
-      "Reviewed 30+ pull requests, cutting average review time by about 25%.",
+      "Drove adoption of Watchflow by proposing integrations through pull requests in active open-source organisations.",
+      "Was the first point of contact for the community and reviewed its contributions.",
     ],
   },
   {
@@ -174,9 +205,16 @@ export const experience: Experience[] = [
     company: "nFront Ventures",
     companyUrl: "https://nfrontventures.com/",
     period: "Aug 2025 – Jan 2026",
+    about: "nFront Academy is a white-label platform for VC funds and their portfolio companies.",
+    location: "Remote",
+    focus: "Full-stack, Next.js, TypeScript",
+    glance: [
+      { value: "10+", label: "VC funds on the platform" },
+      { value: "2,000+", label: "users on work I shipped" },
+    ],
     points: [
-      "Built features for nFront Academy, a white-label platform for VC funds and their portfolio companies.",
-      "Shipped work used by 10+ funds and 2,000+ users.",
+      "Built and shipped production features for nFront Academy with Next.js and TypeScript.",
+      "Worked directly with the founder on the product roadmap and technical decisions.",
     ],
   },
   {
@@ -184,10 +222,19 @@ export const experience: Experience[] = [
     company: "Keploy",
     companyUrl: "https://keploy.io/",
     period: "May – Jul 2025",
+    about: "Keploy is an open-source tool that generates tests from API traffic.",
+    focus: "Test generation, docs, adoption",
     points: [
-      "Worked on the open-source tool that generates tests from API traffic, with the core team on test generation, docs and adoption.",
+      "Worked with the core team on test generation, documentation and adoption.",
     ],
   },
+];
+
+export const highlights: Highlight[] = [
+  { title: "B.Sc. Computer Science", text: "University of the People, 2025." },
+  { title: "2 hackathon wins", text: "Including LabLab.ai 2024. MVPs delivered in 24 to 48 hours." },
+  { title: "Oracle Cloud certified", text: "OCI 2025 AI Foundations Associate." },
+  { title: "Mentored 20+ developers", text: "On their open-source contributions." },
 ];
 
 export const stack: StackGroup[] = [
@@ -197,7 +244,7 @@ export const stack: StackGroup[] = [
   },
   {
     label: "Comfortable",
-    items: ["LLM agents", "AWS", "REST APIs", "Microservices", "Prisma", "Firebase", "shadcn/ui"],
+    items: ["LLM agents", "FastAPI", "PyTorch", "AWS", "REST APIs", "Microservices", "Prisma", "Firebase", "shadcn/ui"],
   },
-  { label: "Learning", items: ["Docker", "FastAPI", "PyTorch", "Cypress"] },
+  { label: "Learning", items: ["Docker", "Cypress"] },
 ];

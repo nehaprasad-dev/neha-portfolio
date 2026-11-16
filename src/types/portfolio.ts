@@ -6,6 +6,19 @@ export type Project = {
   repoLink: string;
   videoLink?: string;
   techStack: string[];
+  /** Set both to show the project as a case study. */
+  problem?: string;
+  built?: string;
+};
+
+export type Service = {
+  title: string;
+  text: string;
+};
+
+export type Highlight = {
+  title: string;
+  text: string;
 };
 
 export type Post = {
@@ -23,6 +36,7 @@ export type Contribution = {
   number: number;
   title: string;
   url: string;
+  note?: string;
 };
 
 export type RecognitionItem = {
@@ -37,12 +51,21 @@ export type Experience = {
   company: string;
   companyUrl: string;
   period: string;
+  about: string;
+  location?: string;
+  focus: string;
+  glance?: Stat[];
   points: string[];
 };
 
 export type StackGroup = {
   label: string;
   items: string[];
+};
+
+export type Stat = {
+  value: string;
+  label: string;
 };
 
 export type SocialLink = {

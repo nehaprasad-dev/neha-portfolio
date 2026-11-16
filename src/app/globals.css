@@ -257,6 +257,41 @@ main {
   box-shadow: 0 0 0 3px oklch(0.62 0.15 150 / 0.18);
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 1rem 1.5rem;
+  max-width: 36rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.stats strong {
+  font-size: var(--step-2);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.stats span {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
 .hero-links {
   display: flex;
   flex-wrap: wrap;
@@ -328,14 +363,6 @@ main {
 
 .section-aside:hover {
   color: var(--accent);
-}
-
-.subhead {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--muted);
 }
 
 /* ------------------------------------------------------------
@@ -429,6 +456,20 @@ main {
 .project--featured .project-title {
   font-size: var(--step-2);
   letter-spacing: -0.025em;
+}
+
+.project-case {
+  margin-top: 1rem;
+}
+
+.project-case dd {
+  max-width: 38rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.project--featured + .project--featured {
+  margin-top: 3rem;
 }
 
 .project-text > .project-meta {
@@ -529,6 +570,16 @@ main {
   color: var(--accent);
 }
 
+.pr-main {
+  display: grid;
+  gap: 0.125rem;
+}
+
+.pr-note {
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
 .more summary {
   display: inline-flex;
   align-items: center;
@@ -611,7 +662,13 @@ main {
    ------------------------------------------------------------ */
 .jobs {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
+}
+
+.job {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .job-head {
@@ -620,12 +677,17 @@ main {
 }
 
 .job-head h3 {
+  font-size: var(--step-1);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .job-head h3 a {
   text-decoration: none;
+}
+
+.job-head h3 a:hover {
+  color: var(--accent);
 }
 
 .job-period {
@@ -634,11 +696,91 @@ main {
   font-variant-numeric: tabular-nums;
 }
 
-.job p {
-  margin-top: 0.375rem;
+.job-about {
+  margin-top: 0.5rem;
   max-width: 40rem;
   color: var(--muted);
   text-wrap: pretty;
+}
+
+.job-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.875rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.job-meta dt,
+.job-owned {
+  font-size: var(--step--1);
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.job-meta dd {
+  margin-top: 0.125rem;
+}
+
+.stats--job {
+  max-width: none;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.stats--job strong {
+  font-size: var(--step-1);
+}
+
+.job-owned {
+  margin-top: 1.25rem;
+}
+
+.job-points {
+  display: grid;
+  gap: 0.375rem;
+  margin-top: 0.375rem;
+  padding-left: 1.125rem;
+  max-width: 40rem;
+  list-style: disc;
+  text-wrap: pretty;
+}
+
+.job-points li::marker {
+  color: var(--faint);
+}
+
+/* ------------------------------------------------------------
+   Cards (What I do, Education and awards) and About
+   ------------------------------------------------------------ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.cards h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cards p {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.about {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.about p:first-child {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink);
 }
 
 /* ------------------------------------------------------------
@@ -787,6 +929,10 @@ main {
     grid-template-columns: 1fr auto;
     align-items: baseline;
     gap: 1rem;
+  }
+
+  .job {
+    padding: 1.75rem;
   }
 
   .stack > div {
