@@ -5,7 +5,6 @@ import type {
   Post,
   Project,
   RecognitionItem,
-  Service,
   SocialLink,
   StackGroup,
   Stat,
@@ -24,34 +23,11 @@ export const stats: Stat[] = [
   { value: "68K", label: "views on one demo video" },
 ];
 
-export const services: Service[] = [
-  {
-    title: "Full-stack engineering",
-    text: "Production web apps with TypeScript, React, Next.js, Node and Python.",
-  },
-  {
-    title: "AI agents and LLM products",
-    text: "Multi-agent systems, tool calling and RAG, from prototype to shipped.",
-  },
-  {
-    title: "Open source",
-    text: "150+ merged pull requests across 19 projects, including Next.js, Mastra and LiteLLM.",
-  },
-  {
-    title: "Developer content",
-    text: "Short demos and videos that get products seen. The best one reached 68K views.",
-  },
-];
-
-/** Opening line of the About card; the second part is set in the accent face. */
-export const aboutLead: [string, string] = [
-  "Hi, I'm Neha. I like building things developers use, and then ",
-  "making sure developers hear about them.",
-];
-
 export const about: string[] = [
-  "I've merged 150+ pull requests into open-source projects, including Next.js, Mastra, LiteLLM, OpenHands and PostHog. At nFront Ventures I shipped production features for a platform used by 10+ VC funds and 2,000+ users. At Warestack I helped 15+ GitHub organisations adopt an agentic governance tool.",
-  "I also make short videos about products and tools on X, and the best one reached 68K views. I've won two hackathons and mentored 20+ developers in open-source contributions.",
+  "I'm Neha, a full-stack engineer in Mumbai. I mostly write TypeScript and Python, and most of what I build has an LLM somewhere in it.",
+  "A lot of my work is in open source. I've had 150+ pull requests merged into projects like Next.js, Mastra, LiteLLM, OpenHands and PostHog. One of them fixed a bug in Mastra where agents froze silently during Anthropic tool calls. Another added multi-turn image generation to LlamaIndexTS.",
+  "At nFront Ventures I built features for nFront Academy, a platform that 10+ VC funds and 2,000+ people use. At Warestack I helped 15+ GitHub organisations start using Watchflow, and reviewed the pull requests the community sent in.",
+  "I also record short videos about tools I try and things I build, and post them on X. The most watched one got 68K views. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
 ];
 
 export const facts: Highlight[] = [

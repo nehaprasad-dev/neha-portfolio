@@ -70,9 +70,7 @@ const stones = [
 export default function GardenFooter() {
   return (
     <footer className="footer">
-      <p className="footer-note">
-        © {new Date().getFullYear()} · Built with care, <em>one commit at a time.</em>
-      </p>
+      <p className="footer-note">© {new Date().getFullYear()} Neha Prasad</p>
       <nav className="footer-links" aria-label="Footer">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>

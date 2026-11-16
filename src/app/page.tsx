@@ -10,7 +10,6 @@ import {
   X_FOLLOWERS,
   X_HANDLE,
   about,
-  aboutLead,
   contributions,
   experience,
   facts,
@@ -18,7 +17,6 @@ import {
   posts,
   projects,
   recognition,
-  services,
   socials,
   stack,
   stats,
@@ -26,26 +24,7 @@ import {
 
 const VISIBLE_PRS = 6;
 
-const serviceIcons: ReactNode[] = [
-  <path key="code" d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />,
-  <path
-    key="ai"
-    d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"
-  />,
-  <g key="oss">
-    <circle cx="6" cy="6" r="2.5" />
-    <circle cx="6" cy="18" r="2.5" />
-    <circle cx="18" cy="12" r="2.5" />
-    <path d="M6 8.5v7M8.5 6c4 0 3 6 7 6" />
-  </g>,
-  <g key="video">
-    <rect x="3" y="5" width="18" height="14" rx="3" />
-    <path d="m10 9 5 3-5 3V9Z" />
-  </g>,
-];
-
 const repos = [...new Set(contributions.map((pr) => pr.repo))];
-const index = (i: number) => String(i + 1).padStart(2, "0");
 const reach = (views: string) => parseFloat(views);
 const topReach = Math.max(...posts.map((post) => reach(post.views)));
 
@@ -59,17 +38,13 @@ function MergedIcon({ className }: { className?: string }) {
 
 function Section({
   id,
-  eyebrow,
   title,
-  accent,
   aside,
   tint,
   children,
 }: {
   id: string;
-  eyebrow: string;
   title: string;
-  accent?: string;
   aside?: ReactNode;
   tint?: boolean;
   children: ReactNode;
@@ -81,12 +56,9 @@ function Section({
       aria-labelledby={`${id}-title`}
     >
       <header className="section-head">
-        <div>
-          <p className="eyebrow">{eyebrow}</p>
-          <h2 id={`${id}-title`} className="section-title">
-            {title} {accent && <em>{accent}</em>}
-          </h2>
-        </div>
+        <h2 id={`${id}-title`} className="section-title">
+          {title}
+        </h2>
         {aside}
       </header>
       {children}
@@ -152,7 +124,7 @@ export default function Home() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">neha prasad · full-stack engineer · mumbai</p>
+            <p className="kicker">Neha Prasad · Full-stack engineer · Mumbai</p>
             <h1 className="hero-title">
               I ship AI products, and <em>get developers to use them.</em>
             </h1>
@@ -192,13 +164,6 @@ export default function Home() {
                 sizes="(min-width: 900px) 400px, 96px"
               />
             </div>
-            <p className="float float--a" aria-hidden="true">
-              <MergedIcon className="merged" />
-              <strong>150+</strong> PRs merged
-            </p>
-            <p className="float float--b" aria-hidden="true">
-              <strong>68K</strong> views on one demo
-            </p>
           </div>
         </section>
 
@@ -222,40 +187,9 @@ export default function Home() {
           ))}
         </ul>
 
-        <Section id="what-i-do" eyebrow="what i do" title="Four things," accent="done well">
-          <ul className="services">
-            {services.map((item, i) => (
-              <li key={item.title} className="card">
-                <div className="service-top">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    {serviceIcons[i]}
-                  </svg>
-                  <span className="num">{index(i)}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section id="about" eyebrow="about" title="A bit" accent="about me">
+        <Section id="about" title="About">
           <div className="about">
             <div className="card about-card">
-              <p className="about-lead">
-                {aboutLead[0]}
-                <em>{aboutLead[1]}</em>
-              </p>
               {about.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -271,7 +205,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="experience" eyebrow="experience" title="Where I've" accent="worked" tint>
+        <Section id="experience" title="Experience" tint>
           <ol className="timeline">
             {experience.map((job) => (
               <li key={job.company} className="tl-item">
@@ -284,12 +218,9 @@ export default function Home() {
                     <p className="job-role">{job.role}</p>
                   </header>
                   <p className="job-about">{job.about}</p>
-                  <ul className="chips chips--small">
-                    {job.location && <li>{job.location}</li>}
-                    {job.focus.split(", ").map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <p className="job-tags">
+                    {[job.location, job.focus].filter(Boolean).join(" · ")}
+                  </p>
 
                   {job.glance && (
                     <ul className="stats stats--job" aria-label="At a glance">
@@ -316,9 +247,7 @@ export default function Home() {
 
         <Section
           id="open-source"
-          eyebrow="open source"
-          title="Code in tools"
-          accent="you already use"
+          title="Open source"
           aside={
             <External href="https://github.com/nehaaprasad" className="pill pill--link">
               150+ merged PRs on GitHub
@@ -344,7 +273,7 @@ export default function Home() {
           </div>
 
           <h3 className="subhead">
-            What maintainers <em>said</em>
+            What maintainers said
           </h3>
           <ul className="shots" aria-label="Maintainer feedback, scrolls sideways">
             {recognition.map((item) => (
@@ -364,7 +293,7 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section id="work" eyebrow="selected work" title="Things I" accent="built" tint>
+        <Section id="work" title="Projects" tint>
           <div className="cases">
             {caseStudies.map((project) => (
               <article className="card case" key={project.title}>
@@ -385,9 +314,7 @@ export default function Home() {
 
         <Section
           id="x"
-          eyebrow="developer content"
-          title="Demos people"
-          accent="actually watch"
+          title="On X"
           aside={
             <External href={`https://x.com/${X_HANDLE}`} className="pill pill--link">
               @{X_HANDLE} · {X_FOLLOWERS} followers
@@ -416,31 +343,26 @@ export default function Home() {
           </ol>
         </Section>
 
-        <Section id="stack" eyebrow="stack" title="What I" accent="work with">
-          <ul className="stack-grid">
+        <Section id="stack" title="Stack">
+          <dl className="rows">
             {stack.map((group) => (
-              <li key={group.label} className="card">
-                <h3>{group.label}</h3>
-                <ul className="chips">
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </li>
+              <div key={group.label}>
+                <dt>{group.label}</dt>
+                <dd>{group.items.join(", ")}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </Section>
 
-        <Section id="highlights" eyebrow="education and awards" title="Along" accent="the way" tint>
-          <ul className="highlights">
-            {highlights.map((item, i) => (
-              <li key={item.title} className="card">
-                <span className="num">{index(i)}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
+        <Section id="highlights" title="Education and awards" tint>
+          <dl className="rows">
+            {highlights.map((item) => (
+              <div key={item.title}>
+                <dt>{item.title}</dt>
+                <dd>{item.text}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </Section>
 
         <ContactSection />

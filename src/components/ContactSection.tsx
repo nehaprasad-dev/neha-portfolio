@@ -43,7 +43,6 @@ export default function ContactSection() {
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
       <header className="section-head">
-        <p className="eyebrow">contact</p>
         <h2 id="contact-title" className="section-title">
           Tell me what you&apos;re <em>shipping.</em>
         </h2>

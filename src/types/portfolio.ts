@@ -11,11 +11,6 @@ export type Project = {
   built?: string;
 };
 
-export type Service = {
-  title: string;
-  text: string;
-};
-
 export type Highlight = {
   title: string;
   text: string;
