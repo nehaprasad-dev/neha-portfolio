@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,19 +10,7 @@ const sans = Schibsted_Grotesk({
   variable: "--font-sans",
 });
 
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-serif",
-});
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 const description =
   "Full-stack engineer who ships AI products and gets developers to use them. 150+ merged PRs to Next.js, Mastra, LiteLLM, OpenHands and LlamaIndex. Open to Software Engineer and DevRel roles.";
@@ -50,7 +38,7 @@ const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="d
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
       <body>
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInit}

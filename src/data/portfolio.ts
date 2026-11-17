@@ -27,9 +27,7 @@ export const stats: Stat[] = [
 /** Wrap a phrase in **double asterisks** to emphasise it. */
 export const about: string[] = [
   "I'm Neha, a full-stack engineer in Mumbai. I mostly write TypeScript and Python, and most of what I build has an LLM somewhere in it.",
-  "A lot of my work is in open source. I've had **150+ pull requests merged** into projects like Next.js, Mastra, LiteLLM, OpenHands and PostHog. One of them fixed a bug in Mastra where agents froze silently during Anthropic tool calls. Another added multi-turn image generation to LlamaIndexTS.",
-  "At nFront Ventures I built features for nFront Academy, a platform that **10+ VC funds and 2,000+ people** use. At Warestack I helped **15+ GitHub organisations** start using Watchflow, and reviewed the pull requests the community sent in.",
-  "Right now I do developer relations at Vaaya, a wallet for AI agents. I record short videos about tools I try and things I build, and post them on X. The most watched one got **68K views**. I've won two hackathons and mentored 20+ developers on their open-source contributions.",
+  "Right now I do developer relations at Vaaya, a wallet for AI agents, where I make the product videos. My most watched video on X got **68K views**. Before that I spent a lot of time in open source, with **150+ pull requests merged** into projects like Next.js, Mastra, LiteLLM and PostHog. I've also won two hackathons and mentored 20+ developers.",
 ];
 
 export const facts: Highlight[] = [

@@ -25,9 +25,6 @@ import {
 
 const VISIBLE_PRS = 6;
 
-const repos = [...new Set(contributions.map((pr) => pr.repo))];
-const reach = (views: string) => parseFloat(views);
-const topReach = Math.max(...posts.map((post) => reach(post.views)));
 
 function MergedIcon({ className }: { className?: string }) {
   return (
@@ -41,21 +38,15 @@ function Section({
   id,
   title,
   aside,
-  tint,
   children,
 }: {
   id: string;
   title: string;
   aside?: ReactNode;
-  tint?: boolean;
   children: ReactNode;
 }) {
   return (
-    <section
-      id={id}
-      className={tint ? "section section--tint" : "section"}
-      aria-labelledby={`${id}-title`}
-    >
+    <section id={id} className="section" aria-labelledby={`${id}-title`}>
       <header className="section-head">
         <h2 id={`${id}-title`} className="section-title">
           {title}
@@ -100,9 +91,6 @@ function formatDate(iso: string) {
 }
 
 export default function Home() {
-  const caseStudies = projects.filter((p) => p.problem && p.built);
-  const rest = projects.filter((p) => !(p.problem && p.built));
-
   return (
     <>
       <header className="topbar">
@@ -134,7 +122,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="kicker">Neha Prasad · Full-stack engineer · Mumbai</p>
             <h1 className="hero-title">
-              I ship AI products, and <em>get developers to use them.</em>
+              I ship AI products, and get developers to use them.
             </h1>
             <p className="hero-lead">
               150+ merged pull requests to Next.js, Mastra, LiteLLM and
@@ -175,17 +163,6 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="marquee" aria-hidden="true">
-          <ul>
-            {[...repos, ...repos].map((repo, i) => (
-              <li key={i}>
-                <MergedIcon className="merged" />
-                {repo}
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <ul className="stats stats--band" aria-label="Highlights">
           {stats.map((s) => (
             <li key={s.label}>
@@ -213,41 +190,32 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="experience" title="Experience" tint>
-          <ol className="timeline">
+        <Section id="experience" title="Experience">
+          <ol className="jobs">
             {experience.map((job) => (
-              <li key={job.company} className="tl-item">
-                <p className="tl-when">{job.period}</p>
-                <article className="card job">
-                  <header className="job-head">
-                    <h3 className="job-company">
-                      <External href={job.companyUrl}>{job.company}</External>
-                    </h3>
-                    <p className="job-role">{job.role}</p>
-                  </header>
+              <li key={job.company} className="job">
+                <p className="job-when">{job.period}</p>
+                <div>
+                  <h3 className="job-title">
+                    <External href={job.companyUrl}>{job.company}</External>
+                    <span className="job-role"> · {job.role}</span>
+                  </h3>
                   <p className="job-about">{job.about}</p>
-                  <p className="job-tags">
-                    {[job.location, job.focus].filter(Boolean).join(" · ")}
-                  </p>
-
                   {job.glance && (
-                    <ul className="stats stats--job" aria-label="At a glance">
+                    <p className="job-glance">
                       {job.glance.map((s) => (
-                        <li key={s.label}>
-                          <strong>{s.value}</strong>
-                          <span>{s.label}</span>
-                        </li>
+                        <span key={s.label}>
+                          <strong>{s.value}</strong> {s.label}
+                        </span>
                       ))}
-                    </ul>
+                    </p>
                   )}
-
-                  <p className="label">What I owned</p>
                   <ul className="job-points">
                     {job.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
                   </ul>
-                </article>
+                </div>
               </li>
             ))}
           </ol>
@@ -262,7 +230,7 @@ export default function Home() {
             </External>
           }
         >
-          <div className="card prs-card">
+          <div className="prs-card">
             <ul className="prs">
               {contributions.slice(0, VISIBLE_PRS).map((pr) => (
                 <PrRow key={pr.url} {...pr} />
@@ -301,19 +269,11 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section id="work" title="Projects" tint>
-          <div className="cases">
-            {caseStudies.map((project) => (
-              <article className="card case" key={project.title}>
-                <Browser project={project} sizes="(min-width: 900px) 540px, 100vw" />
-                <ProjectText project={project} />
-              </article>
-            ))}
-          </div>
+        <Section id="work" title="Projects">
           <div className="project-grid">
-            {rest.map((project) => (
-              <article className="card project" key={project.title}>
-                <Browser project={project} sizes="(min-width: 640px) 520px, 100vw" />
+            {projects.map((project) => (
+              <article className="project" key={project.title}>
+                <Browser project={project} sizes="(min-width: 900px) 360px, (min-width: 640px) 50vw, 100vw" />
                 <ProjectText project={project} />
               </article>
             ))}
@@ -332,13 +292,10 @@ export default function Home() {
           <ol className="posts">
             {posts.map((post) => (
               <li key={post.url}>
-                <External href={post.url} className="card post">
+                <External href={post.url} className="post">
                   <p className="post-views">
                     <strong>{post.views}</strong> views
                   </p>
-                  <span className="reach">
-                    <span style={{ width: `${(reach(post.views) / topReach) * 100}%` }} />
-                  </span>
                   <p className="post-text">{post.text}</p>
                   <p className="post-meta">
                     <span>{post.likes} likes</span>
@@ -351,34 +308,25 @@ export default function Home() {
           </ol>
         </Section>
 
-        <Section id="stack" title="Stack">
-          <dl className="rows">
-            {stack.map((group) => (
-              <div key={group.label}>
-                <dt>
-                  {group.label} <span className="count">{group.items.length}</span>
-                </dt>
-                <dd>
-                  <ul className="chips">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
-
-        <Section id="highlights" title="Education and awards" tint>
-          <dl className="rows">
-            {highlights.map((item) => (
-              <div key={item.title}>
-                <dt>{item.title}</dt>
-                <dd>{item.text}</dd>
-              </div>
-            ))}
-          </dl>
+        <Section id="stack" title="Stack and education">
+          <div className="split">
+            <dl className="rows">
+              {stack.map((group) => (
+                <div key={group.label}>
+                  <dt>{group.label}</dt>
+                  <dd>{group.items.join(", ")}</dd>
+                </div>
+              ))}
+            </dl>
+            <dl className="rows rows--stacked">
+              {highlights.map((item) => (
+                <div key={item.title}>
+                  <dt>{item.title}</dt>
+                  <dd>{item.text}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </Section>
 
         <ContactSection />
@@ -393,12 +341,6 @@ export default function Home() {
 function Browser({ project, sizes }: { project: (typeof projects)[number]; sizes: string }) {
   return (
     <External href={project.liveLink} className="browser">
-      <span className="browser-bar">
-        <i />
-        <i />
-        <i />
-        <span className="browser-url">{new URL(project.liveLink).host}</span>
-      </span>
       <Image
         src={project.image}
         alt={`${project.title} screenshot`}
@@ -417,18 +359,6 @@ function ProjectText({ project }: { project: (typeof projects)[number] }) {
         <External href={project.liveLink}>{project.title}</External>
       </h3>
       <p>{project.description}</p>
-      {project.problem && project.built && (
-        <dl className="project-case">
-          <div>
-            <dt>Problem</dt>
-            <dd>{project.problem}</dd>
-          </div>
-          <div>
-            <dt>What I built</dt>
-            <dd>{project.built}</dd>
-          </div>
-        </dl>
-      )}
       <ul className="chips chips--small">
         {project.techStack.map((tech) => (
           <li key={tech}>{tech}</li>
@@ -455,7 +385,6 @@ function PrRow({ repo, number, title, url, note }: (typeof contributions)[number
             {repo} <span className="pr-num">#{number}</span>
           </span>
         </span>
-        <span className="pr-badge">Merged</span>
       </External>
     </li>
   );
