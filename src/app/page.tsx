@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import ContactSection from "@/components/ContactSection";
 import GardenFooter from "@/components/GardenFooter";
+import IntroVideo from "@/components/IntroVideo";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   EMAIL,
@@ -384,6 +385,7 @@ export default function Home() {
       </main>
 
       <GardenFooter />
+      <IntroVideo />
     </>
   );
 }
