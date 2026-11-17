@@ -47,9 +47,6 @@ export type Experience = {
   companyUrl: string;
   period: string;
   about: string;
-  location?: string;
-  focus: string;
-  glance?: Stat[];
   points: string[];
 };
 

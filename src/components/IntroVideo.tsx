@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { EMAIL } from "@/data/portfolio";
 
 const DISMISS_KEY = "intro-card-dismissed";
 
@@ -67,9 +66,6 @@ export default function IntroVideo() {
               <button type="button" className="button button--primary" onClick={open}>
                 Watch my intro
               </button>
-              <a className="button" href={`mailto:${EMAIL}`}>
-                Email me
-              </a>
             </div>
           </div>
         </aside>

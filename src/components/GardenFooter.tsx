@@ -1,5 +1,5 @@
 import LocalTime from "@/components/LocalTime";
-import { BLOG_URL, EMAIL } from "@/data/portfolio";
+import { BLOG_URL } from "@/data/portfolio";
 
 const W = 1440;
 const H = 360;
@@ -71,15 +71,6 @@ export default function GardenFooter() {
   return (
     <footer className="footer">
       <p className="footer-note">© {new Date().getFullYear()} Neha Prasad</p>
-      <nav className="footer-links" aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#work">Work</a>
-        <a href="https://github.com/nehaaprasad" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-        <a href={`mailto:${EMAIL}`}>Email</a>
-      </nav>
       <p className="footer-meta">
         <LocalTime />
         <span aria-hidden="true"> · </span>

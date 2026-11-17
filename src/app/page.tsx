@@ -13,7 +13,6 @@ import {
   about,
   contributions,
   experience,
-  facts,
   highlights,
   posts,
   projects,
@@ -74,13 +73,6 @@ function External({
   );
 }
 
-/** Turns **phrase** into bold text. */
-function emphasise(text: string) {
-  return text
-    .split("**")
-    .map((part, i) => (i % 2 ? <strong key={i}>{part}</strong> : part));
-}
-
 function formatDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
     month: "short",
@@ -120,18 +112,13 @@ export default function Home() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <p className="kicker">Neha Prasad · Full-stack engineer · Mumbai</p>
+            <p className="kicker">Full-stack engineer</p>
             <h1 className="hero-title">
               I ship AI products, and get developers to use them.
             </h1>
-            <p className="hero-lead">
-              150+ merged pull requests to Next.js, Mastra, LiteLLM and
-              OpenHands. I build with TypeScript, React, Node and Python, and I
-              make the demos that get products seen.
-            </p>
             <p className="hero-status">
               <span className="dot" aria-hidden="true" />
-              Looking for a full-time Software Engineer or DevRel role
+              Looking for a full-time Software Engineer or DevRel role · Mumbai or remote
             </p>
             <div className="hero-actions">
               <External href={RESUME_URL} className="button button--primary">
@@ -173,20 +160,10 @@ export default function Home() {
         </ul>
 
         <Section id="about" title="About">
-          <div className="about">
-            <div className="about-text">
-              {about.map((paragraph) => (
-                <p key={paragraph}>{emphasise(paragraph)}</p>
-              ))}
-            </div>
-            <dl className="facts">
-              {facts.map((fact) => (
-                <div key={fact.title}>
-                  <dt>{fact.title}</dt>
-                  <dd>{fact.text}</dd>
-                </div>
-              ))}
-            </dl>
+          <div className="about-text">
+            {about.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </Section>
 
@@ -201,15 +178,6 @@ export default function Home() {
                     <span className="job-role"> · {job.role}</span>
                   </h3>
                   <p className="job-about">{job.about}</p>
-                  {job.glance && (
-                    <p className="job-glance">
-                      {job.glance.map((s) => (
-                        <span key={s.label}>
-                          <strong>{s.value}</strong> {s.label}
-                        </span>
-                      ))}
-                    </p>
-                  )}
                   <ul className="job-points">
                     {job.points.map((point) => (
                       <li key={point}>{point}</li>
@@ -226,7 +194,7 @@ export default function Home() {
           title="Open source"
           aside={
             <External href="https://github.com/nehaaprasad" className="pill pill--link">
-              150+ merged PRs on GitHub
+              See all on GitHub
             </External>
           }
         >

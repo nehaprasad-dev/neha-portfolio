@@ -24,17 +24,8 @@ export const stats: Stat[] = [
   { value: "68K", label: "views on one demo video" },
 ];
 
-/** Wrap a phrase in **double asterisks** to emphasise it. */
 export const about: string[] = [
-  "I'm Neha, a full-stack engineer in Mumbai. I mostly write TypeScript and Python, and most of what I build has an LLM somewhere in it.",
-  "Right now I do developer relations at Vaaya, a wallet for AI agents, where I make the product videos. My most watched video on X got **68K views**. Before that I spent a lot of time in open source, with **150+ pull requests merged** into projects like Next.js, Mastra, LiteLLM and PostHog. I've also won two hackathons and mentored 20+ developers.",
-];
-
-export const facts: Highlight[] = [
-  { title: "Based in", text: "Mumbai, India" },
-  { title: "Looking for", text: "Software Engineer or DevRel, full-time" },
-  { title: "Open to", text: "Remote, or on-site in Mumbai" },
-  { title: "Works with", text: "TypeScript, React, Node, Python" },
+  "A lot of what I know comes from open source: fixing real bugs in tools I use every day, and having my code reviewed by the people who maintain them.",
 ];
 
 export const socials: SocialLink[] = [
@@ -175,15 +166,9 @@ export const experience: Experience[] = [
     companyUrl: "https://vaaya.ai/",
     period: "Jul 2026 – Present",
     about: "Vaaya is a prepaid wallet that lets AI agents pay for the tools they use, with spending limits you control.",
-    focus: "Developer content, product demos, launches",
-    glance: [
-      { value: "63K", label: "views on the agent-payments demo" },
-      { value: "13K", label: "views on the Vaaya Jobs launch video" },
-      { value: "10", label: "product videos made, across payments, Jobs and Wallet" },
-    ],
     points: [
-      "Made the demo video showing an AI agent paying for a job without a credit card. It reached 63K views on X.",
-      "Made 10 product videos in total, including the launches of Vaaya Jobs and Vaaya Wallet. I wrote, recorded and edited each one.",
+      "Made 10 product videos, including the launches of Vaaya Jobs (13K views) and Vaaya Wallet. I wrote, recorded and edited each one.",
+      "Made the agent-payments demo, showing an AI agent paying for a job without a credit card.",
     ],
   },
   {
@@ -192,16 +177,9 @@ export const experience: Experience[] = [
     companyUrl: "https://www.warestack.com/",
     period: "Dec 2025 – May 2026",
     about: "Warestack builds Watchflow, an agentic governance tool for GitHub.",
-    location: "Remote",
-    focus: "Developer adoption, community, code review",
-    glance: [
-      { value: "15+", label: "GitHub organisations onboarded" },
-      { value: "30+", label: "pull requests reviewed" },
-      { value: "~25%", label: "faster average review time" },
-    ],
     points: [
-      "Drove adoption of Watchflow by proposing integrations through pull requests in active open-source organisations.",
-      "Was the first point of contact for the community and reviewed its contributions.",
+      "Got 15+ GitHub organisations using Watchflow by proposing integrations through pull requests.",
+      "First point of contact for the community: reviewed 30+ pull requests and cut average review time by about 25%.",
     ],
   },
   {
@@ -209,13 +187,7 @@ export const experience: Experience[] = [
     company: "nFront Ventures",
     companyUrl: "https://nfrontventures.com/",
     period: "Aug 2025 – Jan 2026",
-    about: "nFront Academy is a white-label platform for VC funds and their portfolio companies.",
-    location: "Remote",
-    focus: "Full-stack, Next.js, TypeScript",
-    glance: [
-      { value: "10+", label: "VC funds on the platform" },
-      { value: "2,000+", label: "users on work I shipped" },
-    ],
+    about: "nFront Academy is a white-label platform used by 10+ VC funds and their portfolio companies.",
     points: [
       "Built and shipped production features for nFront Academy with Next.js and TypeScript.",
       "Worked directly with the founder on the product roadmap and technical decisions.",
@@ -227,7 +199,6 @@ export const experience: Experience[] = [
     companyUrl: "https://keploy.io/",
     period: "May – Jul 2025",
     about: "Keploy is an open-source tool that generates tests from API traffic.",
-    focus: "Test generation, docs, adoption",
     points: [
       "Worked with the core team on test generation, documentation and adoption.",
     ],
