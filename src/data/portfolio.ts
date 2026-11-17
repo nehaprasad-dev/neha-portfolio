@@ -15,7 +15,8 @@ export const X_HANDLE = "nehaaaa_6";
 export const X_FOLLOWERS = "1.7K";
 export const BLOG_URL = "https://nehacodes.hashnode.dev/";
 export const RESUME_URL =
-  "https://drive.google.com/file/d/15_stuFTFvIxXO0RRTXwmhH3Akga_15Ip/view?usp=drivesdk";
+"https://drive.google.com/file/d/1qE6JAWnL6gkLkg65tPdlU8ou8SHF8wyt/view?usp=drivesdk";
+  
 export const stats: Stat[] = [
   { value: "150+", label: "merged open-source PRs" },
   { value: "19", label: "major repos contributed to" },
